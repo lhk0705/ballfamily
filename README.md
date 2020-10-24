@@ -39,6 +39,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 3、NBA、CBA比赛计划、比分、视频、球队信息
 后端：NODE爬虫获取NBA、CBA比赛计划、比分、视频和球队信息
+NBA、CBA可共用组件：球队信息页面、比赛安排及结果页面
+
 
 4、社区：论坛、聊天、上传约球邀请
 （1）论坛：查看内容及评论

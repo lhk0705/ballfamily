@@ -1,0 +1,73 @@
+<template>
+<div class="head">
+  <div class="fst-head">
+    <div class="logo">
+      <img src="./篮球LOGO.jpg" width="120px" height="120px" alt="">
+    </div> 
+    <div class="user"> 
+      <span><strong>欢迎进入篮球世界！   {{user}}</strong></span>      
+      <router-link to='/'>[退出]</router-link>
+    </div>
+    
+  </div>
+  <div >
+      <ul class="sec-head">
+        <li>
+          <router-link to="/nba">NBA</router-link>
+        </li>
+        <li>
+          <router-link to="/cba">CBA</router-link>
+        </li>
+        <li>
+          <router-link to="/community">社区</router-link>
+        </li>
+        <li>
+          <router-link to="/education">教学专区</router-link>
+        </li>
+        <li>
+          <router-link to="/bussiness">周边商城</router-link>
+        </li>
+      </ul>
+      </div> 
+  </div>
+</template>
+ 
+<script>
+export default {
+data(){
+  return{
+    user:'henry'
+  }
+}
+}
+</script>
+
+<style scoped>
+.head{
+  height:160px ;
+  border-bottom:1px solid black
+}
+.fst-head{
+  /* margin:0 100px; */
+  height:120px ;
+  border-bottom:1px solid black
+}
+.logo{
+  float:left;
+}
+.user{
+  float:right;
+  position: relative;
+  right: 50px;
+  top: 80px;
+}
+.sec-head li{
+  float: left;
+  width: 100px;
+  height: 30px;
+  margin:0 50px;
+  list-style: none;
+  cursor: pointer; 
+  
+}
+</style>
