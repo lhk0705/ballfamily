@@ -1,6 +1,7 @@
 <template>
   <div id="app" v-if="!user">
     <heading></heading>
+    <br>
     <router-view/>    
       <foot></foot>
   </div>

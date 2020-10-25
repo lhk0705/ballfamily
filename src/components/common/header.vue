@@ -43,14 +43,18 @@ data(){
 </script>
 
 <style scoped>
-.head{
+
+.head{ 
   height:160px ;
-  border-bottom:1px solid black
+  border-bottom:1px solid rgb(184, 183, 183);
+  border-radius:4px
 }
 .fst-head{
   /* margin:0 100px; */
   height:120px ;
-  border-bottom:1px solid black
+  border-bottom:1px solid black;
+  background-color: rgb(201, 201, 201);
+  color: rgb(236, 233, 233);
 }
 .logo{
   float:left;
@@ -67,7 +71,9 @@ data(){
   height: 30px;
   margin:0 50px;
   list-style: none;
-  cursor: pointer; 
+  cursor: pointer;
+  color: black;
+   
   
 }
 </style>

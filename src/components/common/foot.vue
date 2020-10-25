@@ -13,6 +13,8 @@ export default {
 
 <style scoped>
  .foot{
-   margin:0 20px
+   margin:0 20px;
+   height:30px;
+  
  }
 </style>
