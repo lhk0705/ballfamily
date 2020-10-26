@@ -49,7 +49,7 @@ data(){
 
 .head{ 
   height:160px ;
-  border-bottom:1px solid rgb(184, 183, 183);
+  border-bottom:3px solid rgb(184, 183, 183);
   border-radius:4px
 }
 .fst-head{
@@ -76,6 +76,8 @@ data(){
   list-style: none;
   cursor: pointer;
   color: black;
+   border-right:1px solid ;
+   padding-right: 30px;
    
   
 }

@@ -14,5 +14,25 @@ app.listen(8089,(req,res)=>{
     console.log("验证程序已启动");
 });
 
+app.post('/getTodayMatch',(req,res)=>{
+    let data=[req.body.league,req.body.date];
+    connection.query(match.queryToday,data,(err,result)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send(result)
+        }
+    })
+});
+app.post('/getAllMatch',(req,res)=>{
+    connection.query(match.queryAll,req.body.league,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+})
 
 

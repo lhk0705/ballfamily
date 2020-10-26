@@ -19,6 +19,7 @@ export default new Router({
       path: '/nba',
       name: 'nba',
       component: nba,
+      redirect:'/nba_matches',
       children:[
         {
           path:'/nba_matches',
