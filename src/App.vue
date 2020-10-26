@@ -11,6 +11,7 @@
 </template>
 
 <script>
+
 import heading from "./components/common/header";
 import foot from "./components/common/foot";
 import origin from "./components/origin/origin";
@@ -18,7 +19,12 @@ export default {
   components:{
     heading,foot,origin
   },
-  name: 'App'
+  name: 'App',
+  data(){
+    return{
+      user:''
+    }
+  }
 }
 </script>
 

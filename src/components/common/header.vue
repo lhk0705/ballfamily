@@ -13,6 +13,9 @@
   <div >
       <ul class="sec-head">
         <li>
+          <router-link to="/">首页</router-link>
+        </li>
+        <li>
           <router-link to="/nba">NBA</router-link>
         </li>
         <li>
@@ -54,7 +57,7 @@ data(){
   height:120px ;
   border-bottom:1px solid black;
   background-color: rgb(201, 201, 201);
-  color: rgb(236, 233, 233);
+  color: rgb(252, 249, 249);
 }
 .logo{
   float:left;
@@ -68,8 +71,8 @@ data(){
 .sec-head li{
   float: left;
   width: 100px;
-  height: 30px;
-  margin:0 50px;
+  height: 20px;
+  margin:0 2%;
   list-style: none;
   cursor: pointer;
   color: black;

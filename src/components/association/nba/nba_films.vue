@@ -1,5 +1,5 @@
 <template>
-  <div>NBA</div>
+  <div>nbafilms</div>
 </template>
 
 <script>
