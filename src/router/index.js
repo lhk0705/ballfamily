@@ -6,6 +6,9 @@ let cba=()=>import('@/components/association/cba/cba')
 let nba_matches=()=>import('@/components/association/nba/nba_matches')
 let nba_rates=()=>import('@/components/association/nba/nba_rates')
 let nba_films=()=>import('@/components/association/nba/nba_films')
+let cba_matches=()=>import('@/components/association/cba/cba_matches')
+let cba_rates=()=>import('@/components/association/cba/cba_rates')
+let cba_films=()=>import('@/components/association/cba/cba_films')
 Vue.use(Router)
 
 export default new Router({
@@ -41,7 +44,25 @@ export default new Router({
     {
       path: '/cba',
       name: 'cba',
-      component: cba
+      component: cba,
+      redirect:'/cba_matches',
+      children:[
+        {
+          path:'/cba_matches',
+          name:'cba_matches',
+          component:cba_matches
+        },
+        {
+          path:'/cba_rates',
+          name:'cba_rates',
+          component:cba_rates
+        },
+        {
+          path:'/cba_films',
+          name:'cba_films',
+          component:cba_films
+        },
+      ]
     },
   ]
 })

@@ -5,7 +5,9 @@ import App from './App'
 import axios from 'axios'
 import router from './router'
 import {store} from "./vuex/store";
-
+import video from "video.js";
+import "video.js/dist/video";
+Vue.prototype.$video=video
 
 Vue.config.productionTip = false
 axios.defaults.baseURL="http://localhost:8089"

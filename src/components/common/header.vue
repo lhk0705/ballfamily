@@ -1,8 +1,8 @@
 <template>
 <div class="head">
   <div class="fst-head">
-    <div class="logo">
-      <img src="./篮球LOGO.jpg" width="120px" height="120px" alt="">
+    <div class="logo"><router-link to="/"><img src="./篮球LOGO.jpg" width="120px" height="120px" alt=""></router-link>
+      
     </div> 
     <div class="user"> 
       <span><strong>欢迎进入篮球世界！   {{user}}</strong></span>      
@@ -13,22 +13,23 @@
   <div >
       <ul class="sec-head">
         <li>
-          <router-link to="/">首页</router-link>
+          <router-link to="/"><strong>首页</strong>
+          </router-link>
         </li>
         <li>
-          <router-link to="/nba">NBA</router-link>
+          <router-link to="/nba"><strong>NBA</strong></router-link>
         </li>
         <li>
-          <router-link to="/cba">CBA</router-link>
+          <router-link to="/cba"><strong>CBA</strong></router-link>
         </li>
         <li>
-          <router-link to="/community">社区</router-link>
+          <router-link to="/community"><strong>社区</strong></router-link>
         </li>
         <li>
-          <router-link to="/education">教学专区</router-link>
+          <router-link to="/education"><strong>教学专区</strong></router-link>
         </li>
         <li>
-          <router-link to="/bussiness">周边商城</router-link>
+          <router-link to="/bussiness"><strong>周边商城</strong></router-link>
         </li>
       </ul>
       </div> 
@@ -80,5 +81,12 @@ data(){
    padding-right: 30px;
    
   
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+a:hover{
+  color: rgb(0, 153, 255);
 }
 </style>
