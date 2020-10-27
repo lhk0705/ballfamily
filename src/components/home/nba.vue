@@ -19,6 +19,12 @@
       </div>
       <div class="nba-score">
         <h3>今日NBA比分</h3>
+        <ul v-for="item in todayMatches" :key="item.matchId">
+          <li>
+            <strong>{{item.host}}</strong> &nbsp;&nbsp;{{item.hostScore}} 
+               <strong>:</strong>  {{item.guestScore}}<strong>&nbsp;&nbsp;{{item.guest}}</strong>
+          </li>
+        </ul>
       </div>
       </div>
     </div>
@@ -26,6 +32,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data(){
     return{
@@ -36,7 +43,8 @@ export default {
     }
   },
   created(){    
-    this.timeplus()
+    this.timeplus();
+    this.getMatch()
   },
   methods:{
     changevis2(){      
@@ -59,7 +67,14 @@ export default {
         if(this.time===2){this.time=0}
         else{this.time++;}
         },3000)
-    }
+    },
+    getMatch(){
+      axios.post('/getTodayMatch',{league:'NBA',date:'2020-10-24'})
+      .then((res)=>{
+        // console.log(res.data);
+        this.todayMatches=res.data
+      })
+    },
   },
   watch:{
     time(newV,oldV){
@@ -103,7 +118,8 @@ li{
   right:10%;
   border: 1px solid black;
   width: 31%;
-  height:250px
+  height:250px;
+  
 }
 .nba-news-head{
   text-align: left;
@@ -120,6 +136,16 @@ li{
 .img3{
   position: relative;
   bottom:508px;
+}
+ul{
+  /* margin:0 5% */
+  margin-right:30%
+}
+li{
+  list-style: none;
+  width: 130%;
+  border-bottom:1px solid black;
+  margin: 5px;
 }
 
 

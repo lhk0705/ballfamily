@@ -1,9 +1,10 @@
 <template>
   <div>
     <ul v-for=" item in matches" :key="item.matchId">
-      <li>{{item.matchTime}}
+      <li>
+        {{item.matchTime}}
         <br>
-        {{item.rounds}}
+        第{{item.rounds}}轮
         {{item.host}}VS{{item.guest}}
       </li>
     </ul>

@@ -1,13 +1,14 @@
 <template>
   <div >
-    <div><strong>今日战况</strong>
+    <div><h3>今日战况</h3>
       </div>
     <div class="nba_score_today">
       <ul v-for="item in todayMatches" :key="item.matchId">
         <li>        
-          <div class="host">{{item.host}} <br> {{item.hostScore}}</div> 
+          <div class="host"><strong>{{item.host}}</strong>
+             <br> {{item.hostScore}}</div> 
           <h3 class="VS">VS</h3>         
-        <div class="guest">  {{item.guest}} <br>  {{item.guestScore}}</div>
+        <div class="guest">  <strong>{{item.guest}}</strong> <br>  {{item.guestScore}}</div>
         </li>
       </ul>
     </div>

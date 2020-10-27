@@ -3,7 +3,7 @@
     <ul v-for=" item in matches" :key="item.matchId">
       <li>{{item.matchTime}}
         <br>
-        {{item.rounds}}
+        第{{item.rounds}}轮
         {{item.host}}VS{{item.guest}}
       </li>
     </ul>
@@ -25,6 +25,7 @@ return{
     getAllMatch(){
       axios.post('/getAllMatch',{league:'NBA'})
       .then((res)=>{
+        
         this.matches=res.data
       })
     },
@@ -35,5 +36,6 @@ return{
 <style scoped>
 li{
   list-style: none;
+  border-bottom: 1px solid rgb(196, 194, 194);
 }
 </style>
