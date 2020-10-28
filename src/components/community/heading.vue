@@ -3,12 +3,14 @@
   <div class="community">
       <div class="logo">
           <div class="baller"><h2>球友社区</h2></div>
-          <div class="baller_span"><strong>聊球、约球两不误！</strong></div>
+          <div class="baller_span" ><strong>聊球、约球两不误！</strong></div>
           </div>
           <div class="community_choise">
-              <router-link to="/bbsHome">论坛首页</router-link>
+              <router-link to="/bbsHome" :style="bbsHome">论坛首页
+              </router-link>
               /
-              <router-link to="/meetingHome">约球</router-link>
+              <router-link to="/meetingHome" :style="meetingHome">约球
+             </router-link>
           </div>
   </div>
   </div>
@@ -16,7 +18,15 @@
 
 <script>
 export default {
-
+    data(){
+        return{
+            bbsHome:{border:'1px solid'},
+            meetingHome:{
+                border:'1px solid'
+                
+                }
+        }
+    }
 }
 </script>
 
@@ -24,9 +34,8 @@ export default {
 .community{
     width:70%;
     height:50px;
-    /* border-bottom: 1px solid rgb(22, 22, 22); */
     margin: 0 auto;
-    background-color: rgb(218, 216, 216);
+    
 }
 .baller{
     float: left;
@@ -37,6 +46,7 @@ export default {
     justify-content: center;
     font-style: italic;
     border: 1px solid;
+    background-color: rgb(188, 223, 243);
 }
 .baller_span{
     float: left;
@@ -50,12 +60,17 @@ export default {
 }
 .community_choise{
     float: right;
-    margin-top: 4%;
+    margin-top: 3.5%;
     margin-right: 1%;
 }
 a{
-    list-style: none;
-    text-decoration: none;
-    color: blue;
+    border:'1px solid';
+    text-decoration:none;
+    color: rgb(110, 174, 214);
+    border-radius:4px
 }
+a:hover{
+    color:rgb(243, 138, 138)
+}
+
 </style>

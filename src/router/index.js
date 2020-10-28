@@ -73,38 +73,38 @@ export default new Router({
     },
     {
       path:'/community',
-      name:community,
+      name:'community',
       component:community,
       redirect:'/bbsHome',
       children:[
         {
           path:'/bbs',
-          name:bbs,
+          name:'bbs',
           component:bbs,
         },
         {
           path:'/newBbs',
-          name:newBbs,
+          name:'newBbs',
           component:newBbs,
         },
         {
           path:'/bbsHome',
-          name:bbsHome,
+          name:'bbsHome',
           component:bbsHome,
         },
         {
           path:'/meeting',
-          name:meeting,
+          name:'meeting',
           component:meeting,
         },
         {
           path:'/newMeet',
-          name:newMeet,
+          name:'newMeet',
           component:newMeet,
         },
         {
           path:'/meetingHome',
-          name:meetingHome,
+          name:'meetingHome',
           component:meetingHome,
         },
       ]

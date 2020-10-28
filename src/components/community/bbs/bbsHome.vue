@@ -1,16 +1,133 @@
 <template>
-  <div class="bbsHome">bbsHome
+  <div class="bbsHome">
+    <div class="bbsHomeHead">
+      <div class="most">
+        <el-button size="mini" @click="mostNew">最新</el-button>
+        &nbsp;&nbsp;|&nbsp;
+        <el-button size="mini" @click="mostHot">最热</el-button>
+      </div>
+      <div class="search">
+          <el-input size="mini" style="width:20%" placeholder="请输入搜索条件" v-model="condition"></el-input>
+          <button size="mini" style="height:20px;width:30px" @click="search(condition)"><i class="icon iconfont icon-search"></i></button>
+      </div>
+      <div class="toNewBbs"> 
+        <el-button size="mini" type="primary" @click="toNewBbs">发帖</el-button>
+      </div>
+    </div>
+    <div class="bbsBody">
+      <div class="bbsBody_head">
+        <div class="lp"><strong>主贴标题</strong>
+          </div>
+        <div class="rp"><strong>回复数量</strong></div>
+      </div>
+      <div>
+        <ul v-for="item in sites" :key="item.siteId">
+          <li>
+            <div class="lp"><router-link :to="{name:'bbs',params:{siteId:item.siteId}}">{{item.siteTitle}}</router-link></div>
+            <div class="rp">{{item.commentQuantity}}</div>            
+          </li>
+          <br>
+        </ul>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+data(){
+  return {
+    condition:'',
+    sites:[{
+      siteId:1,
+      siteTitle:'哈哈哈哈哈',
+      commentQuantity:10
+    },{
+      siteId:2,
+      siteTitle:'哈哈哈哈哈',
+      commentQuantity:10
+    },{
+      siteId:3,
+      siteTitle:'哈哈哈哈',
+      commentQuantity:10
+    }]
+  }
+},
+methods:{
+  toNewBbs(){
+    this.$router.push('/newBbs')
+  },
+  search(condition){
+      let result=this.sites.filter((item)=>{
+        return item.siteTitle === condition
+      })
+      console.log(result);
+      this.sites=result.slice()
+    },
+    mostNew(){
 
+    },
+    mostHot(){
+
+    },
+    toBbs(){
+      alert("!!")
+    }
 }
-</script>
+}
+</script> 
 
 <style scoped>
 .bbsHome{
-    height:300px
+    height:300px;
+    margin: 10px auto;
+    
+}
+.bbsHomeHead{
+  height:10%;
+  width: 70%;
+  /* border-bottom:1px solid; */
+  margin:0 auto
+}
+.most{
+  float: left;
+}
+.search{
+  position: relative;
+  left: 52%;
+  display: flex;
+}
+.toNewBbs{
+  float: right;
+  position: relative;
+  bottom:90%;
+}
+.bbsBody{
+  width: 70%;
+  height: 300px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.bbsBody_head{
+  height: 20px;
+  border-bottom: 1px solid black;
+}
+li{
+  list-style: none;
+  
+  width: 95%;
+  position: relative;
+  right: 5%;
+}
+.lp{
+  float: left;
+  height:80%;
+}
+.rp{
+  float: right;
+  height: 80%;
+}
+a{
+  color: rgb(22, 4, 4);
 }
 </style>

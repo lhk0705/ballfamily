@@ -30,8 +30,11 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 1、user：账号、密码、用户名、喜爱球队、账号创建日期、帖子、评论、购物车、订单、好友、聊天列表、约球列表、头像
 2、
 
+三、技术栈：
+vue + vue-cli + vuex + axios + express + mysql + element-ui + iconfront 
 
-三、页面
+
+四、页面
 
 1、登录、注册页
 

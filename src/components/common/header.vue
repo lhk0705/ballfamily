@@ -57,7 +57,7 @@ data(){
   /* margin:0 100px; */
   height:120px ;
   border-bottom:1px solid black;
-  background-color: rgb(201, 201, 201);
+  background-color: rgb(192, 216, 243);
   color: rgb(252, 249, 249);
 }
 .logo{

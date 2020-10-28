@@ -122,7 +122,7 @@ li{
 }
 .cba-news-head{
   text-align: left;
-  border: 1px solid rgb(141, 140, 140);
+  border-bottom: 1px solid rgb(141, 140, 140);
   height:30px;
   display: flex;
   align-items: center;
