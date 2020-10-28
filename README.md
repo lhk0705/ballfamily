@@ -1,13 +1,13 @@
 # ball-family
 
-> an app for backetball-fans
+> an app for basketball-fans
 
 ## Build Setup
 
 ``` bash
 # install dependencies
 npm install
-
+s
 # serve with hot reload at localhost:8080
 npm run dev
 
@@ -44,10 +44,13 @@ NBA、CBA可共用组件：球队信息页面、比赛安排及结果页面
 
 4、社区：论坛、聊天、上传约球邀请
 （1）论坛：查看内容及评论
-（2）聊天：点击用户头像可查看信息及发送私信
-（3）
+（2）聊天页面
+（3）约球页面
+（4）个人信息页面
 
 5、篮球知识课堂
 
 
 6、篮球商城
+
+7、个人信息页面

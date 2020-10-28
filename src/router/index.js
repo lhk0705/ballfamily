@@ -9,6 +9,13 @@ let nba_films=()=>import('@/components/association/nba/nba_films')
 let cba_matches=()=>import('@/components/association/cba/cba_matches')
 let cba_rates=()=>import('@/components/association/cba/cba_rates')
 let cba_films=()=>import('@/components/association/cba/cba_films')
+let bbs=()=>import ('@/components/community/bbs/bbs') ;
+let bbsHome=()=>import('@/components/community/bbs/bbsHome') ;
+let newBbs=()=>import ('@/components/community/bbs/newBbs');
+let meeting=()=>import ('@/components/community/meeting/meeting');
+let newMeet=()=>import ('@/components/community/meeting/newMeet');
+let meetingHome=()=>import ('@/components/community/meeting/meetingHome');
+let community=()=>import('@/components/community/community')
 Vue.use(Router)
 
 export default new Router({
@@ -64,5 +71,43 @@ export default new Router({
         },
       ]
     },
+    {
+      path:'/community',
+      name:community,
+      component:community,
+      redirect:'/bbsHome',
+      children:[
+        {
+          path:'/bbs',
+          name:bbs,
+          component:bbs,
+        },
+        {
+          path:'/newBbs',
+          name:newBbs,
+          component:newBbs,
+        },
+        {
+          path:'/bbsHome',
+          name:bbsHome,
+          component:bbsHome,
+        },
+        {
+          path:'/meeting',
+          name:meeting,
+          component:meeting,
+        },
+        {
+          path:'/newMeet',
+          name:newMeet,
+          component:newMeet,
+        },
+        {
+          path:'/meetingHome',
+          name:meetingHome,
+          component:meetingHome,
+        },
+      ]
+    }
   ]
 })
