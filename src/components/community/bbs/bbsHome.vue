@@ -8,7 +8,7 @@
       </div>
       <div class="search">
           <el-input size="mini" style="width:20%" placeholder="请输入搜索条件" v-model="condition"></el-input>
-          <button size="mini" style="height:20px;width:30px" @click="search(condition)"><i class="icon iconfont icon-search"></i></button>
+          <button size="mini" style="height:27px;width:30px" @click="search(condition)"><i class="icon iconfont icon-search"></i></button>
       </div>
       <div class="toNewBbs"> 
         <el-button size="mini" type="primary" @click="toNewBbs">发帖</el-button>
@@ -94,7 +94,7 @@ methods:{
 }
 .search{
   position: relative;
-  left: 52%;
+  left: 50%;
   display: flex;
 }
 .toNewBbs{

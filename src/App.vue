@@ -38,5 +38,6 @@ export default {
   color: #2c3e50;
   border:1px solid black;
   margin: 0 150px;
+
 }
 </style>
