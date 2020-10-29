@@ -1,5 +1,8 @@
 <template>
-  <div>newmeet
+  <div>
+    <div class="newMeetTitle">
+        
+    </div>
   </div>
 </template>
 
