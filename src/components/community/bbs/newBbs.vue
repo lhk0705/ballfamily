@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
 data(){
   return{
@@ -26,6 +27,18 @@ data(){
 },
 methods:{
   submit(){
+    let data={
+      siteId:this.$store.getters.getSiteId,
+      siteTitle:this.siteTitle,
+      siteContent:this.siteContent,
+      siteTime:'2020-10-31',
+      userName:'henry'
+    };
+    axios.post('/addBbs',data)
+    .then((res)=>{
+      console.log(data);
+      this.$store.commit('addSite')
+    })
     
   }
 }

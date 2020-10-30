@@ -2,14 +2,14 @@
   <div>
     <div class="siteTop">
       <div class="siteTitle">
-        <div class="shouqi"><h1>{{ title }}</h1></div>
+        <div class="shouqi"><h1>{{ site.siteTitle }}</h1></div>
       </div>
       <div class="siteContent">
         <div class="siteContentHead">
-          <strong>楼主</strong>&nbsp;&nbsp;&nbsp;{{userName}}&nbsp;&nbsp;&nbsp;{{siteTime}}
+          <strong>楼主</strong>&nbsp;&nbsp;&nbsp;{{site.userName}}&nbsp;&nbsp;&nbsp;{{site.siteTime}}
         </div>
         <div class="siteContentMain">
-          {{siteContent}}
+          {{site.siteContent}}
         </div>
         <div class="siteContentFoot">
           <el-button size="mini" @click="recommand">推荐</el-button>
@@ -24,16 +24,17 @@
         <h1>全部回帖</h1>
         <el-button size="mini" type="primary" @click="close">{{controlContent}}</el-button></div>  
       </div>
-      <div class="siteContent" :style="style">
+      <div v-for=" item in comments" :key="item.commentId">
+      <div class="siteContent" :style="style" >
         <div class="siteContentHead">
-        {{contentUser}} &nbsp;&nbsp;&nbsp;&nbsp;  {{commentTime}}</div>
+        {{item.userName}} &nbsp;&nbsp;&nbsp;&nbsp;  {{item.commentTime}}</div>
       </div>
       <div class="siteMainFoot" :style="style">
-        {{commentContent}}
-      </div>
+        {{item.commentContent}}
+      </div></div>
     </div>
     <div class="siteFoot">
-      <div class="siteFootHead"><h2>Re:{{ title }}</h2>
+      <div class="siteFootHead"><h2>Re:{{ site.siteTitle }}</h2>
       <textarea v-model="comment" cols="100" rows="10"></textarea>
       
       </div> 
@@ -45,24 +46,29 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   beforeRouteEnter: (to, from, next) => {
     next((vm) => {
       // if(from.path==='/bbsHome'){
-      console.log(vm.$route.params);
+        axios.post('/getBbsbyid',{siteId:Number(vm.$route.params.siteId)})
+        .then((res)=>{
+          vm.site=res.data[0]
+          console.log(vm.site);
+        });
+        axios.post('/queryComments',{siteId:Number(vm.$route.params.siteId)})
+        .then((res)=>{
+          vm.comments=res.data
+          console.log(vm.comments);
+        });
+      // console.log(vm.$route.params);
       // }
     });
   },
   data() {
     return {
-      title: "标题",
-      userName:'lhk',
-      siteTime:'2020-10-28',
-      contentUser:'l阿发',
-      commentTime:'2020-10-28',
-      commentContent:'回复内容',
-      siteContent:'帖子内容',
-      comment:'',
+      site:'',
+      comments:[],      
       style:{display:'block'},
       controlContent:'收起'
     };
@@ -79,6 +85,24 @@ export default {
         this.style.display='block';
         this.controlContent='收起'
       }
+    },
+    recommand(){
+      
+    },
+    comment(){
+      this.$store.commit('setComment',this.site.commentQuantity)
+      this.$store.commit('addComment')
+      let data={
+        siteId:this.site.siteId,
+        commentQuantity:this.$store.getters.getComment
+      }
+      axios.post('/commentQuantity',data)
+      .then((res)=>{
+        console.log(res.data);
+      })
+    },
+    mark(){
+
     }
   }
 

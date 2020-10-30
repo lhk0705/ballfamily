@@ -34,23 +34,12 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
 data(){
   return {
     condition:'',
-    sites:[{
-      siteId:1,
-      siteTitle:'哈哈哈哈哈',
-      commentQuantity:10
-    },{
-      siteId:2,
-      siteTitle:'哈哈哈哈哈',
-      commentQuantity:10
-    },{
-      siteId:3,
-      siteTitle:'哈哈哈哈',
-      commentQuantity:10
-    }]
+    sites:[]
   }
 },
 methods:{
@@ -72,7 +61,17 @@ methods:{
     },
     toBbs(){
       alert("!!")
+    },
+    getBbs(){
+      axios.post('/getAllBbs',1)
+      .then((res)=>{
+        this.sites=res.data
+        console.log(res.data);   
+        })
     }
+},
+created(){
+  this.getBbs()
 }
 }
 </script> 
