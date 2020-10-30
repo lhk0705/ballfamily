@@ -35,7 +35,7 @@ export default {
     width:70%;
     height:50px;
     margin: 0 auto;
-    
+    border-bottom: 1px solid;
 }
 .baller{
     float: left;
@@ -45,22 +45,23 @@ export default {
     align-items: center;
     justify-content: center;
     font-style: italic;
-    border: 1px solid;
+    
     background-color: rgb(188, 223, 243);
 }
 .baller_span{
     float: left;
-    /* border: 1px solid; */
-    margin-top: 6%;
+    position: relative;
+    top: 60%;
 }
 .logo{
     float: left;
     width: 60%;
-    
+    height: 50px;
 }
 .community_choise{
     float: right;
-    margin-top: 3.5%;
+    position: relative;
+    top: 60%;
     margin-right: 1%;
 }
 a{

@@ -1,6 +1,6 @@
 <template>
   <div>
-      <heading class="h"></heading>
+      <heading ></heading>
     <router-view></router-view>
   </div>
 </template>
@@ -15,7 +15,5 @@ export default {
 </script>
 
 <style>
-.h{
-    border-bottom: 1px solid;
-}
+
 </style>

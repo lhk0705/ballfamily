@@ -1,6 +1,5 @@
 <template>
-  <div class="foot">
-    <hr>
+  <div class="foot">    
     联系我们：henrylee@qq.com
   </div>
 </template>
@@ -15,6 +14,6 @@ export default {
  .foot{
    margin:0 20px;
    height:30px;
-  
+  border-top: 1px dotted;
  }
 </style>

@@ -6,8 +6,8 @@
         &nbsp;&nbsp;|&nbsp;
         <el-button size="mini" @click="mostHot">最热</el-button>
       </div>
-      <div class="search">
-          <el-input size="mini" style="width:20%" placeholder="请输入搜索条件" v-model="condition"></el-input>
+      <div class="searchBbs">
+          <el-input size="mini" style="width:30%" placeholder="请输入搜索条件" v-model="condition"></el-input>
           <button size="mini" style="height:27px;width:30px" @click="search(condition)"><i class="icon iconfont icon-search"></i></button>
       </div>
       <div class="toNewBbs"> 
@@ -80,6 +80,7 @@ methods:{
 <style scoped>
 .bbsHome{
     height:300px;
+    width:90%;
     margin: 10px auto;
     
 }
@@ -87,14 +88,14 @@ methods:{
   height:10%;
   width: 70%;
   /* border-bottom:1px solid; */
-  margin:0 auto
+  margin:4% auto 0 auto
 }
 .most{
   float: left;
 }
-.search{
+.searchBbs{
   position: relative;
-  left: 50%;
+  left: 40%;
   display: flex;
 }
 .toNewBbs{
@@ -110,7 +111,7 @@ methods:{
 }
 .bbsBody_head{
   height: 20px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px dotted black;
 }
 li{
   list-style: none;
@@ -129,5 +130,8 @@ li{
 }
 a{
   color: rgb(22, 4, 4);
+}
+a:hover{
+  color:red
 }
 </style>

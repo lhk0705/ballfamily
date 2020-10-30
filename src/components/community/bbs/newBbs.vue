@@ -59,8 +59,5 @@ methods:{
   position: absolute;
   left:21%
 }
-/* .newBbsBtn{
-  position:relative;
-  left:32%
-} */
+
 </style>
