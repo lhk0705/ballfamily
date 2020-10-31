@@ -1,11 +1,12 @@
 import Vue from "vue";
 import Vuex from "vuex";
 Vue.use(Vuex);
-import ball from "./bussiness/ball";
-import sites from "./bussiness/sites";
+import ball from "./community/ball";
+import sites from "./community/sites";
+import comments from "./community/comments";
 
 export const store=new Vuex.Store({
     modules:{
-        ball,sites,
+        ball,sites,comments,
     }
 })

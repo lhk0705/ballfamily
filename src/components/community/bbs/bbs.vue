@@ -12,7 +12,7 @@
           {{site.siteContent}}
         </div>
         <div class="siteContentFoot">
-          <el-button size="mini" @click="recommand">推荐</el-button>
+          <el-button size="mini" @click="share">推荐</el-button>
           <el-button size="mini" @click="comment">评论</el-button>
           <el-button size="mini" @click="mark">收藏</el-button>
         </div>
@@ -35,8 +35,7 @@
     </div>
     <div class="siteFoot">
       <div class="siteFootHead"><h2>Re:{{ site.siteTitle }}</h2>
-      <textarea v-model="comment" cols="100" rows="10"></textarea>
-      
+      <textarea v-model="comment" cols="100" rows="10" placeholder="请输入200字评论"></textarea>      
       </div> 
       <div  class="siteFootFoot">
         <el-button size="mini" type="primary" @click="submit(comment)">回复</el-button>
@@ -67,6 +66,7 @@ export default {
   },
   data() {
     return {
+      comment:'',
       site:'',
       comments:[],      
       style:{display:'block'},
@@ -86,24 +86,57 @@ export default {
         this.controlContent='收起'
       }
     },
-    recommand(){
-      
-    },
-    comment(){
-      this.$store.commit('setComment',this.site.commentQuantity)
-      this.$store.commit('addComment')
+    share(){
+      this.$store.commit('setShare',this.site.shareQuantity)
+      this.$store.commit('addShare')
       let data={
         siteId:this.site.siteId,
-        commentQuantity:this.$store.getters.getComment
+        shareQuantity:this.$store.getters.getShare
       }
-      axios.post('/commentQuantity',data)
+      axios.post('/shareQuantity',data)
       .then((res)=>{
         console.log(res.data);
       })
     },
+    comment(){
+     
+    },
     mark(){
-
-    }
+      this.$store.commit('setMark',this.site.markQuantity)
+      this.$store.commit('addMark')
+      let data={
+        siteId:this.site.siteId,
+        markQuantity:this.$store.getters.getMark
+      }
+      axios.post('/markQuantity',data)
+      .then((res)=>{
+        console.log(res.data);
+      })     
+    },
+    submit(comment){
+      let data={
+        commentId:this.$store.getters.getCommentId,
+        siteId:this.site.siteId,
+        siteTitle:this.site.siteTitle,
+        commentTime:'2020-10-31',
+        commentContent:comment,
+        userName:'licheng'
+      }
+      axios.post('/addComment',data)
+      .then() 
+      this.$store.commit('setComment',this.site.commentQuantity)    
+      this.$store.commit('addComment')
+      let data1={
+        siteId:this.site.siteId,
+        commentQuantity:this.$store.getters.getComment
+      }
+      axios.post('/commentQuantity',data1)
+      .then((res)=>{
+        // console.log(res.data);
+      })
+      alert("评论成功")
+      // this.$router.push({name:'bbs',params:{siteId:this.site.siteId}})
+    },
   }
 
 };

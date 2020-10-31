@@ -41,22 +41,22 @@
         <ul>
           <li><div>主题</div>
           <div>地点</div>
-          <div>时间</div>
-          <div>约球人数</div>
-          <div>状态</div></li>
+          <div>约球时间</div>
+          <div>约球人数</div></li>
+          <!-- <div>状态</div> -->
         </ul></strong>        
       </div>
       <div class="listMain">
-        <ul v-for="item in ballList" :key="item.ballId">
+        <ul v-for="item in balls" :key="item.ballId">
           <li>
             <div><router-link :to="{name:'meeting',params:{ballId:item.ballId}}">
               {{item.ballTitle}}</router-link></div>
             <div>{{item.place}}</div>
             <div>{{item.ballTime}}</div>
             <div>{{item.ballPeople}}/{{item.ballLimit}}</div>
-            <div>
-              <el-button size="mini" type="primary" :disabled="disabled">{{join}}</el-button>
-            </div>
+            <!-- <div>
+              <el-button size="mini" type="primary">查看</el-button>
+            </div> -->
             </li>
         </ul>
       </div>
@@ -65,21 +65,13 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
 data(){
   return{
     disabled:false,
     join:'参加',
-    ballList:[
-      {
-      ballId:0,
-      ballTitle:'来人呀！打球不啊啊',
-      place:'天河体育中心',
-      ballTime:'2020-10-25',
-      ballPeople:4,
-      ballLimit:4
-    }
-    ]
+    balls:[]
   }
 },
 methods:{
@@ -89,7 +81,14 @@ methods:{
   search(){
 
   }
-}
+},
+created(){
+  axios.post('/getBalls',1)
+  .then((res)=>{
+    this.balls=res.data
+  })
+  },
+  
 }
 </script>
 
@@ -126,7 +125,7 @@ li{
   right:3%
 }
 li div{
-  width: 20%;
+  width: 25%;
   height: 25px;
   float: left;
   display: flex;

@@ -9,57 +9,29 @@
     <div class="newPlace">
       <div class="newMeetPlace">
         <div><strong>地点：</strong></div>
-        <div>
-          <el-select v-model="placesheng" filterable size="mini">
-            <el-option
-              v-for="item in sheng"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            >
-            </el-option>
-          </el-select>
-          <el-select v-model="placeshi" filterable size="mini">
-            <el-option
-              v-for="item in shi"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            >
-            </el-option>
-          </el-select>
-          <el-select v-model="placequ" filterable size="mini">
-            <el-option
-              v-for="item in qu"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            >
-            </el-option>
-          </el-select>
-        </div>
-      </div>
-      <div class="placeInput">
+        <div class="placeInput">
         <el-input
           size="mini"
           placeholder="请输入具体地址"
-          v-model="ballPlace"
+          v-model="place"
         ></el-input>
       </div>
+      </div>
+      
     </div>
     <div class="newMeetTime">
-      <div><strong>时间：</strong></div>
+      <div><strong>约球时间：</strong></div>
       <el-date-picker
         size="mini"
         value-format="yyyy-MM-dd"
-        v-model="placeTime"
+        v-model="ballTime"
         type="date"
         placeholder="请选择日期"
       ></el-date-picker>
     </div>
     <div class="newMeetLimit">
       <div><strong>人数：</strong></div>
-      <div><el-input type="number" v-model="ballLimit" min="1"></el-input></div>
+      <div><el-input size="mini" type="number" v-model="ballLimit" min="1"></el-input></div>
     </div>
     <div class="newMeetExp">
       <div><strong>说明：</strong></div>
@@ -73,19 +45,37 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   methods: {
-    newMeet() {},
+    newMeet() {
+      let data={
+        ballId:this.$store.getters.getBallId,
+        ballTitle:this.ballTitle,
+        place:this.place,
+        ballTime:this.ballTime,
+        ballPeople:1,
+        ballLimit:this.ballLimit,
+        ballComments:this.ballComments,
+        ballCreater:'henry'
+      }
+      axios.post('/addBall',data)
+      .then()
+      this.$store.commit('addBall')
+      alert('创建成功！正在返回约球列表...')
+      this.$router.push('/meetingHome')
+    },
     backMeetingHome(){
       this.$router.push('/meetingHome')
     }
+    
   },
   data() {
     return {
       ballTitle: "",
-      ballPlace: "",
+      place: "",
       ballLimit: 1,
-      placeTime:'',
+      ballTime:'',
       ballComments:''
     };
   },
@@ -109,10 +99,7 @@ export default {
   position: relative;
   left:150px
 }
-.placeInput{
-  position: relative;
-  left:195px
-}
+
 .inputTitle {
   width: 30%;
 }

@@ -96,3 +96,92 @@ app.post('/commentQuantity',(req,res)=>{
         }
     })
 });
+app.post('/shareQuantity',(req,res)=>{
+    let data=[
+        req.body.shareQuantity,
+        req.body.siteId       
+    ]
+    connection.query(sites.updateShare,data,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+app.post('/markQuantity',(req,res)=>{
+    let data=[
+        req.body.markQuantity,
+        req.body.siteId       
+    ]
+    connection.query(sites.updateMark,data,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+app.post('/addComment',(req,res)=>{
+    let data=[
+        req.body.commentId,
+        req.body.siteId,
+        req.body.siteTitle,
+        req.body.commentTime,
+        req.body.commentContent,
+        req.body.userName
+    ]
+    connection.query(comments.insert,data,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+app.post('/getBalls',(req,res)=>{
+    connection.query(balls.queryAll,req.body,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+app.post('/getBallById',(req,res)=>{
+    connection.query(balls.queryById,req.body.ballId,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+app.post('/getBallersById',(req,res)=>{
+    connection.query(joinBall.queryBallers,req.body.ballId,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+app.post('/addBall',(req,res)=>{
+    let data=[
+        req.body.ballId,
+        req.body.ballTitle,
+        req.body.place,
+        req.body.ballTime,
+        req.body.ballPeople,
+        req.body.ballLimit,
+        req.body.ballComments,
+        req.body.ballCreater,
+    ]
+    connection.query(balls.insert,data,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
