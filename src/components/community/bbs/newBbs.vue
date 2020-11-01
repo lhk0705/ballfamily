@@ -31,14 +31,16 @@ methods:{
       siteId:this.$store.getters.getSiteId,
       siteTitle:this.siteTitle,
       siteContent:this.siteContent,
-      siteTime:'2020-10-31',
-      userName:'henry'
+      siteTime:new Date().toLocaleDateString(),
+      userName:this.$store.getters.getUser
     };
     axios.post('/addBbs',data)
     .then((res)=>{
       console.log(data);
       this.$store.commit('addSite')
     })
+    alert('发帖成功')
+    this.$router.push('/bbsHome')
     
   }
 }

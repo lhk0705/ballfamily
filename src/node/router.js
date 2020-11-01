@@ -185,3 +185,53 @@ app.post('/addBall',(req,res)=>{
         }
     })
 });
+app.post('/addJoin',(req,res)=>{
+    let data=[
+        req.body.joinId,
+        req.body.ballId,
+        req.body.userName
+    ]
+    connection.query(joinBall.insert,data,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+app.post('/updatePeople',(req,res)=>{
+    let data=[
+        req.body.ballPeople,
+        req.body.ballId
+    ]
+    connection.query(balls.updatePeople,data,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+app.post('/getUser',(req,res)=>{
+    connection.query(user.queryAll,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+app.post('/addUser',(req,res)=>{
+    let data=[
+        req.body.userId,
+        req.body.password,
+        req.body.userName,
+    ]
+    connection.query(user.insert,data,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});

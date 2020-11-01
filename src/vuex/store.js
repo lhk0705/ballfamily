@@ -4,9 +4,11 @@ Vue.use(Vuex);
 import ball from "./community/ball";
 import sites from "./community/sites";
 import comments from "./community/comments";
+import joinBall from "./community/joinBall";
+import user from "./user";
 
 export const store=new Vuex.Store({
     modules:{
-        ball,sites,comments,
+        ball,sites,comments,joinBall,user
     }
 })

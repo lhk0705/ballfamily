@@ -1,6 +1,6 @@
 module.exports={
-    insert:'insert into user(userId,password,name,likeTeam,birthday) values(?,?,?,?,?)' ,
+    insert:'insert into user(userId,password,userName) values(?,?,?)' ,
     delete: 'DELETE  FROM user WHERE userId=?',
     queryById: 'SELECT * FROM user WHERE userId=?',
-    queryAll: 'SELECT * FROM user'
+    queryAll: 'SELECT * FROM user',
 }

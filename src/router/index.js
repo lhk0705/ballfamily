@@ -16,10 +16,28 @@ let meeting=()=>import ('@/components/community/meeting/meeting');
 let newMeet=()=>import ('@/components/community/meeting/newMeet');
 let meetingHome=()=>import ('@/components/community/meeting/meetingHome');
 let community=()=>import('@/components/community/community')
+let login=()=>import('@/components/origin/login')
+let register=()=>import('@/components/origin/register')
+let myInfo=()=>import('@/components/origin/myInfo')
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path:'/myInfo',
+      name:'myInfo',
+      component:myInfo
+      },
+    {
+    path:'/login',
+    name:'login',
+    component:login
+    },
+    {
+      path:'/register',
+      name:'register',
+      component:register
+      },
     {
       path: '/',
       name: 'home',

@@ -56,10 +56,33 @@ export default {
   },
   methods: {
     join() {
-
+      this.addJoin()
+      this.updatePeople()
+      this.$store.commit('addJoin')
+      alert('参加成功!')
+      this.$router.push('/meetingHome')
     },
     backMeetingHome(){
       this.$router.push('/meetingHome')
+    },
+    updatePeople(){
+      this.$store.commit('setPeople',this.ball.ballPeople)
+      this.$store.commit('addPeople')
+      let data={
+        ballPeople:this.$store.getters.getPeople,
+        ballId:this.ball.ballId
+      }
+      axios.post('/updatePeople',data)
+      .then()
+    },
+    addJoin(){
+      let data={
+        joinId:this.$store.getters.getJoinId,
+        ballId:this.ball.ballId,
+        userName:this.$store.getters.getUser,
+      }
+      axios.post('/addJoin',data)
+      .then()
     }
   },
   data() {
@@ -96,7 +119,7 @@ export default {
   display: flex;
   justify-content: left;
   align-items: center;
-  /* border: 1px solid; */
+  /* border: 1px solid;  */
   position: relative;
   left:150px
 }

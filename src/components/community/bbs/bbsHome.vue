@@ -21,10 +21,10 @@
         <div class="rp"><strong>回复数量</strong></div>
       </div>
       <div>
-        <ul v-for="item in sites" :key="item.siteId">
+        <ul v-for="(item,index) in sites" :key="index">
           <li>
-            <div class="lp"><router-link :to="{name:'bbs',params:{siteId:item.siteId}}">{{item.siteTitle}}</router-link></div>
-            <div class="rp">{{item.commentQuantity}}</div>            
+            <div class="lp"><router-link :to="{name:'bbs',params:{siteId:sites[index].siteId}}">{{sites[index].siteTitle}}</router-link></div>
+            <div class="rp">{{sites[index].commentQuantity}}</div>            
           </li>
           <br>
         </ul>
@@ -57,7 +57,19 @@ methods:{
 
     },
     mostHot(){
-
+      let sites=this.sites
+      for(let i=0;i<sites.length-1;i++){
+          for(let j=0;j<sites.length-1;j++){
+            if(Number(sites[j].commentQuantity)<Number(sites[j+1].commentQuantity)){
+              let temp=sites[j]
+              sites[j]=sites[j+1]
+              sites[j+1]=temp
+            }
+          }
+      }
+      
+      this.sites=sites
+      console.log(this.sites);
     },
     toBbs(){
       alert("!!")
@@ -72,7 +84,7 @@ methods:{
 },
 created(){
   this.getBbs()
-}
+},
 }
 </script> 
 

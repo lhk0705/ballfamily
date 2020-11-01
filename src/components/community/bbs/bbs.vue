@@ -118,9 +118,9 @@ export default {
         commentId:this.$store.getters.getCommentId,
         siteId:this.site.siteId,
         siteTitle:this.site.siteTitle,
-        commentTime:'2020-10-31',
+        commentTime:new Date().toLocaleDateString(),
         commentContent:comment,
-        userName:'licheng'
+        userName:this.$store.getters.getUser
       }
       axios.post('/addComment',data)
       .then() 

@@ -1,23 +1,20 @@
 <template>
-  <div id="app" v-if="!user">
+  <div id="app" >
     <heading></heading>
     <br>
     <router-view/>    
       <foot></foot>
   </div>
-  <div v-else> 
-    <origin></origin>
-      </div>
+
 </template>
 
 <script>
 
 import heading from "./components/common/header";
 import foot from "./components/common/foot";
-import origin from "./components/origin/origin";
 export default {
   components:{
-    heading,foot,origin
+    heading,foot
   },
   name: 'App',
   data(){

@@ -4,11 +4,15 @@
     <div class="logo"><router-link to="/"><img src="./篮球LOGO.jpg" width="120px" height="120px" alt=""></router-link>
       
     </div> 
-    <div class="user"> 
-      <span><strong>欢迎进入篮球世界！   {{user}}</strong></span>      
-      <router-link to='/'>[退出]</router-link>
+    <div class="user" v-if="userName"> 
+      <span ><strong>欢迎进入篮球世界！   <router-link id='username' to="/myInfo">{{userName}}</router-link></strong></span>      
+      <router-link to='/' @click.native="logOut">[退出]</router-link>
+      
     </div>
-    
+    <div class="user" v-else>
+      <span ><strong>欢迎进入篮球世界！   请</strong></span>
+      <router-link to='/login'>登录</router-link> 
+    </div>
   </div>
   <div >
       <ul class="sec-head">
@@ -40,7 +44,19 @@
 export default {
 data(){
   return{
-    user:'henry'
+    
+  }
+},
+computed:{
+  userName(){
+    return this.$store.getters.getUser
+  }
+},
+methods:{
+  logOut(){
+    this.$store.commit('setUser','')
+    this.userName=''
+    alert('退出成功')
   }
 }
 }
@@ -53,12 +69,18 @@ data(){
   border-bottom:3px solid rgb(184, 183, 183);
   border-radius:4px
 }
+#username{
+  color: rgb(252, 249, 249);
+}
+#username:hover,a:hover{
+  border-bottom: 1px solid ;
+  color:rgb(0, 153, 255);
+}
 .fst-head{
   /* margin:0 100px; */
   height:120px ;
   border-bottom:1px solid black;
   background-color: rgb(192, 216, 243);
-  color: rgb(252, 249, 249);
 }
 .logo{
   float:left;
@@ -68,6 +90,7 @@ data(){
   position: relative;
   right: 50px;
   top: 80px;
+  color: rgb(252, 249, 249);
 }
 .sec-head li{
   float: left;
@@ -86,7 +109,5 @@ a{
   text-decoration: none;
   color:black;
 }
-a:hover{
-  color: rgb(0, 153, 255);
-}
+
 </style>
