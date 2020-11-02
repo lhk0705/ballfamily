@@ -20,14 +20,18 @@
           </div>
         <div class="rp"><strong>回复数量</strong></div>
       </div>
-      <div>
-        <ul v-for="(item,index) in sites" :key="index">
+      <div v-if="sites.length">
+        <ul v-for="(item,index) in sites" :key="index" >
           <li>
             <div class="lp"><router-link :to="{name:'bbs',params:{siteId:sites[index].siteId}}">{{sites[index].siteTitle}}</router-link></div>
             <div class="rp">{{sites[index].commentQuantity}}</div>            
           </li>
           <br>
         </ul>
+        
+        </div>
+        <div v-else>
+            暂无相应搜索结果~
         </div>
     </div>
   </div>
@@ -48,13 +52,24 @@ methods:{
   },
   search(condition){
       let result=this.sites.filter((item)=>{
-        return item.siteTitle === condition
+        return item.siteTitle.indexOf(condition)>-1
       })
       console.log(result);
       this.sites=result.slice()
     },
     mostNew(){
-
+      let res=this.sites;      
+      for(let i=0;i<res.length-1;i++){
+        for(let j=0;j<res.length-1;j++){
+           if(res[j].siteTime<res[j+1].siteTime){
+             let temp=res[j]
+             res[j]=res[j+1]
+             res[j+1]=temp
+           }
+        }
+      }
+      this.sites=res.slice()
+      console.log(this.sites);
     },
     mostHot(){
       let sites=this.sites
@@ -68,8 +83,8 @@ methods:{
           }
       }
       
-      this.sites=sites
-      console.log(this.sites);
+      this.sites=sites.slice()
+      // console.log(this.sites);
     },
     toBbs(){
       alert("!!")

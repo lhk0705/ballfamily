@@ -235,3 +235,17 @@ app.post('/addUser',(req,res)=>{
         }
     })
 });
+app.post('/markInsert',(req,res)=>{
+    let data=[
+        req.body.markId,
+        req.body.userName,
+        req.body.siteTitle,
+    ]
+    connection.query(marks.insert,data,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});

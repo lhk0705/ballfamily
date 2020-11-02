@@ -2,6 +2,7 @@
   <div>
     <nba></nba>
     <cba></cba>
+    <community></community>
   </div>
 </template>
 

@@ -77,6 +77,29 @@ export default {
     
   },
   methods:{
+    addMarkQuantity(){
+      // 增加帖子的mark数量
+      this.$store.commit('setMark',this.site.markQuantity)
+      this.$store.commit('addMark')
+      let data={
+        siteId:this.site.siteId,
+        markQuantity:this.$store.getters.getMark
+      }
+      axios.post('/markQuantity',data)
+      .then((res)=>{
+        console.log(res.data);
+      })  
+    },
+    addMark(){      
+      let data={
+        markId:this.$store.getters.getMarkId,
+        userName:this.$store.getters.getUser,
+        siteTitle:this.site.siteTitle
+      }
+      axios.post('/markInsert',data)
+      .then()
+      this.$store.commit('addMarkId')
+    },
     close(){
       if(this.controlContent==='收起'){
       this.style.display='none';
@@ -97,21 +120,13 @@ export default {
       .then((res)=>{
         console.log(res.data);
       })
-    },
-    comment(){
-     
+      alert('推荐成功')
     },
     mark(){
-      this.$store.commit('setMark',this.site.markQuantity)
-      this.$store.commit('addMark')
-      let data={
-        siteId:this.site.siteId,
-        markQuantity:this.$store.getters.getMark
-      }
-      axios.post('/markQuantity',data)
-      .then((res)=>{
-        console.log(res.data);
-      })     
+      this.addMarkQuantity()
+      // 在mark表插入一行
+      this.addMark()
+      alert('收藏成功')
     },
     submit(comment){
       let data={

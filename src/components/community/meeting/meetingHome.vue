@@ -2,34 +2,20 @@
   <div class="meetingHome">
     <div class="search">
       <div class="searchLeft">
-          <el-select v-model="placesheng" filterable size="mini">
-            <el-option
-              v-for="item in sheng"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            >
-            </el-option>
-          </el-select>
-          <el-select v-model="placeshi" filterable size="mini">
-            <el-option
-              v-for="item in shi"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            >
-            </el-option>
-          </el-select>
-          <el-select v-model="placequ" filterable size="mini">
-            <el-option
-              v-for="item in qu"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            >
-            </el-option>
-          </el-select>
-          <el-button size="mini" type="primary" @click="search">查询</el-button>
+          <label >主题</label>
+          <el-input size="mini" style="width:20%"  v-model="searchTitle"></el-input>
+          <label>地点</label>
+          <el-input size="mini" style="width:20%"  v-model="searchPlace"></el-input>
+          <label>约球时间</label>
+          <el-date-picker
+        size="mini"
+        value-format="yyyy-MM-dd"
+        v-model="ballTime"
+        type="date"
+        style="width:20%" 
+        placeholder="请选择日期"
+          ></el-date-picker>
+          <el-button size="mini" type="primary" style="width:10%" @click="search">查询</el-button>
         </div>
         <div class="searchRight">
           <el-button size="mini" type="primary" @click="toNewMeet">发起约球</el-button>
@@ -71,7 +57,10 @@ data(){
   return{
     disabled:false,
     join:'参加',
-    balls:[]
+    balls:[],
+    searchTitle:'',
+    searchPlace:'',
+    searchTime:''
   }
 },
 methods:{
@@ -99,9 +88,10 @@ created(){
   /* border: 1px solid; */
 }
 .searchRight{
-  position: absolute;
-  width: 10%;
-  right: 15%;
+  /* position: absolute; */
+  width: 20%;
+  float: right;
+  /* right: 15%; */
   /* border: 1px solid; */
 }
 .meetingHome{
@@ -120,7 +110,7 @@ li{
   top: 8%;
 }
 .meetingList{
-  margin-top: 3%;
+  margin-top: 4%;
   position: relative;
   right:3%
 }
