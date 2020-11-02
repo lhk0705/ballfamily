@@ -104,7 +104,7 @@ export default {
 }
 .nba-img{
   margin-left: 10%;
-  width: 31%;
+  width: 300px;
   height: 250px;
   border: 1px solid black;
   float: left;
@@ -117,7 +117,7 @@ li{
   position: absolute;
   right:10%;
   border: 1px solid black;
-  width: 31%;
+  width: 300px;
   height:250px;
   
 }

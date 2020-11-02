@@ -45,11 +45,11 @@ export default {
           if(item.userId===this.userId&&item.password===this.password){
             alert("登陆成功！")            
             if(this.autoLogin){
-              this.$store.commit('autoUser',item.userName,1)
+              this.$store.commit('autoUser',item.userName)
+              // this.$store.commit('autoUser','lll')
             }else{
               this.$store.commit('setUser',item.userName)
-            }
-            
+            }            
             this.$router.push('/')
           }
         }

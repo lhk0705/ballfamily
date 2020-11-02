@@ -67,7 +67,8 @@ methods:{
 .head{ 
   height:160px ;
   border-bottom:3px solid rgb(184, 183, 183);
-  border-radius:4px
+  border-radius:4px;
+  width:99%
 }
 #username{
   color: rgb(252, 249, 249);
@@ -108,6 +109,11 @@ methods:{
 a{
   text-decoration: none;
   color:black;
+}
+.sec-head{
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
 }
 
 </style>

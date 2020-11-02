@@ -31,7 +31,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 2、
 
 三、技术栈：
-vue + vue-cli + vuex + axios + express + mysql + element-ui + iconfront 
+vue + vue-cli + vuex + axios + express + mysql + element-ui + iconfont 
 
 
 四、页面
@@ -52,8 +52,11 @@ NBA、CBA可共用组件：球队信息页面、比赛安排及结果页面
 （4）个人信息页面
 
 5、篮球知识课堂
-
+(1)篮球规则介绍
+(2)篮球教学视频
 
 6、篮球商城
+（1）商城首页
+（2）
 
 7、个人信息页面

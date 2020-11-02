@@ -8,12 +8,12 @@ const mutations={
     setUser:(state,data)=>{
         state.userName=data
         sessionStorage.setItem('userName',data)
+        localStorage.setItem('userName',data)
     },
-    autoUser:(state,data,expire)=>{
+    autoUser:(state,data)=>{
         state.userName=data;
-        let exp=Date.now()+expire*1000*60
         localStorage.setItem('userName',JSON.stringify({
-            value:data,time:exp
+            value:data,time:Date.now()+1*1000*60*60*48
         }))
         
     }
@@ -22,15 +22,14 @@ const getters={
     getUser:state=>{
         if(state.userName){return state.userName}
         else if(sessionStorage.getItem('userName')){return sessionStorage.getItem('userName')}
-        // else{
-        //     let data=JSON.parse(localStorage.getItem('userName'))
-            
-        //     if(Date.now()>data.time){
-        //     localStorage.removeItem('userName');
-        //     return null;
-        //     }
-        //     return data.value
-        // }
+        else if(localStorage.getItem('userName')){
+            let data=JSON.parse(localStorage.getItem('userName'))                     
+            if(Date.now()>data.time){
+            localStorage.removeItem('userName');
+            return null;
+            }
+            return data.value
+        }
     }
     
 }

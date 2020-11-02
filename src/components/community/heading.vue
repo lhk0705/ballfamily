@@ -22,8 +22,7 @@ export default {
         return{
             bbsHome:{border:'1px solid'},
             meetingHome:{
-                border:'1px solid'
-                
+                border:'1px solid'                
                 }
         }
     }
@@ -44,8 +43,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-style: italic;
-    
+    font-style: italic;   
     background-color: rgb(188, 223, 243);
 }
 .baller_span{
