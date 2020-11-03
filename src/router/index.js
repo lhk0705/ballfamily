@@ -19,10 +19,49 @@ let community=()=>import('@/components/community/community')
 let login=()=>import('@/components/origin/login')
 let register=()=>import('@/components/origin/register')
 let myInfo=()=>import('@/components/origin/myInfo')
+let business=()=>import('@/components/business/business')
+let busHome=()=>import('@/components/business/busHome')
+let items=()=>import('@/components/business/item/items')
+let singleItem=()=>import('@/components/business/item/singleItem')
+let singleStore=()=>import('@/components/business/store/singleStore')
+let stores=()=>import('@/components/business/store/stores')
+
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:'/business',
+    name:'business',
+    component:business,
+    redirect:'/busHome',
+    children:[
+      {
+        path:'/busHome',
+        name:'busHome',
+        component:busHome
+      },
+      {
+        path:'/items',
+        name:'items',
+        component:items
+      },
+      {
+        path:'/singleItem',
+        name:'singleItem',
+        component:singleItem
+      },
+      {
+        path:'/singleStore',
+        name:'singleStore',
+        component:singleStore
+      },
+      {
+        path:'/stores',
+        name:'stores',
+        component:stores
+      },
+    ]
+    },
     {
       path:'/myInfo',
       name:'myInfo',

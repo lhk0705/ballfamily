@@ -1,5 +1,6 @@
 var express=require('express');
-var connection=require('./mysql');
+var connection=require('./ballSql');
+var connectBus=require('./businessSql')
 var app=express();
 var bp=require('body-parser');
 app.use(bp.json());
@@ -12,14 +13,23 @@ var team=require('./association/teams');
 var balls=require('./community/ballMeet/balls');
 var joinBall=require('./community/ballMeet/joinBall');
 var comments=require('./community/bbs/comments');
-var marks=require('./community/bbs/marks');
-var sites=require('./community/bbs/sites');
+var sites=require('./community/bbs/sites')
+var chartItems=require('./business/chartItems');
+var charts=require('./business/charts');
+var evaluates=require('./business/evaluates');
+var items=require('./business/items');
+var orderItems=require('./business/orderItems');
+var orders=require('./business/orders');
+var stores=require('./business/stores');
+
 
 connection.connect();
+connectBus.connect();
 app.listen(8089,(req,res)=>{
     console.log("验证程序已启动");
 });
 
+// NBA/CBA
 app.post('/getTodayMatch',(req,res)=>{
     let data=[req.body.league,req.body.date];
     connection.query(match.queryToday,data,(err,result)=>{
@@ -40,6 +50,7 @@ app.post('/getAllMatch',(req,res)=>{
         }
     })
 });
+// sites表
 app.post('/getAllBbs',(req,res)=>{
     connection.query(sites.queryAll,req.body,(err,result)=>{
         if(err){
@@ -139,6 +150,7 @@ app.post('/addComment',(req,res)=>{
         }
     })
 });
+// balls表
 app.post('/getBalls',(req,res)=>{
     connection.query(balls.queryAll,req.body,(err,result)=>{
         if(err){
@@ -212,6 +224,21 @@ app.post('/updatePeople',(req,res)=>{
         }
     })
 });
+app.post('/markInsert',(req,res)=>{
+    let data=[
+        req.body.markId,
+        req.body.userName,
+        req.body.siteTitle,
+    ]
+    connection.query(marks.insert,data,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+// user表
 app.post('/getUser',(req,res)=>{
     connection.query(user.queryAll,(err,result)=>{
         if(err){
@@ -235,17 +262,7 @@ app.post('/addUser',(req,res)=>{
         }
     })
 });
-app.post('/markInsert',(req,res)=>{
-    let data=[
-        req.body.markId,
-        req.body.userName,
-        req.body.siteTitle,
-    ]
-    connection.query(marks.insert,data,(err,result)=>{
-        if(err){
-            console.log(err);
-        }else{
-            res.send(result)
-        }
-    })
-});
+// 
+
+
+

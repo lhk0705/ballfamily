@@ -1,7 +1,7 @@
 <template>
 <div class="head">
   <div class="fst-head">
-    <div class="logo"><router-link to="/"><img src="./篮球LOGO.jpg" width="120px" height="120px" alt=""></router-link>
+    <div class="logo"><router-link to="/"><img src="./篮球LOGO.jpg" width="100px" height="60px" alt=""></router-link>
       
     </div> 
     <div class="user" v-if="userName"> 
@@ -33,7 +33,7 @@
           <router-link to="/education"><strong>教学专区</strong></router-link>
         </li>
         <li>
-          <router-link to="/bussiness"><strong>周边商城</strong></router-link>
+          <router-link to="/business"><strong>商城</strong></router-link>
         </li>
       </ul>
       </div> 
@@ -65,7 +65,7 @@ methods:{
 <style scoped>
 
 .head{ 
-  height:160px ;
+  height:100px ;
   border-bottom:3px solid rgb(184, 183, 183);
   border-radius:4px;
   width:99%
@@ -78,33 +78,31 @@ methods:{
   color:rgb(0, 153, 255);
 }
 .fst-head{
-  /* margin:0 100px; */
-  height:120px ;
+  height:60px ;
   border-bottom:1px solid black;
   background-color: rgb(192, 216, 243);
 }
 .logo{
   float:left;
+  position: relative;
+  left: 10%;
 }
 .user{
   float:right;
   position: relative;
-  right: 50px;
-  top: 80px;
+  right: 80px;
+  top: 30px;
   color: rgb(252, 249, 249);
 }
 .sec-head li{
   float: left;
   width: 100px;
-  height: 20px;
   margin:0 2%;
   list-style: none;
   cursor: pointer;
   color: black;
-   border-right:1px solid ;
-   padding-right: 30px;
-   
-  
+  border-right:1px solid ;
+  padding-right: 30px;  
 }
 a{
   text-decoration: none;
