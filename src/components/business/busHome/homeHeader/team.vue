@@ -1,10 +1,12 @@
 <template>
-  <div>business home</div>
+    <div>
+        teams
+    </div>
 </template>
 
 <script>
 export default {
-  
+
 }
 </script>
 
