@@ -1,7 +1,7 @@
 <template>
 <div class="head">
   <div class="fst-head">
-    <div class="logo"><router-link to="/"><img src="./篮球LOGO.jpg" width="100px" height="60px" alt=""></router-link>
+    <div class="logo"><router-link to="/"><img src="./篮球.jpg" width="100px" height="60px" alt=""></router-link>
       
     </div> 
     <div class="user" v-if="userName"> 
@@ -65,7 +65,7 @@ methods:{
 <style scoped>
 
 .head{ 
-  height:100px ;
+  height:90px ;
   border-bottom:3px solid rgb(184, 183, 183);
   border-radius:4px;
   width:99%
@@ -79,7 +79,7 @@ methods:{
 }
 .fst-head{
   height:60px ;
-  border-bottom:1px solid black;
+  /* border-bottom:1px solid black; */
   background-color: rgb(192, 216, 243);
 }
 .logo{
