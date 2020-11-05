@@ -38,7 +38,7 @@ export default {
   color: #2c3e50;
   /* border:1px solid black; */
   background-color: white;
-  
+  z-index: 1;
 }
 .new{
 display:grid;

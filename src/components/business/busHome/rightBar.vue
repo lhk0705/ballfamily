@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="rightBar">
       <ul>
           <li>
               热卖
@@ -49,4 +49,9 @@ li{
     list-style: none;
     /* background-color:black ; */
 }
+li:hover{
+    cursor: pointer;
+    color: red;
+}
+
 </style>
