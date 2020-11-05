@@ -3,12 +3,12 @@
         <!-- <div class="themeMarket"> -->
           <ul>
             <li><strong>主题市场</strong></li>
-            <li @mouseover="shoesVis">球鞋</li>
-            <li @mouseover="clothesVis">服饰</li>
-            <li @mouseover="partsVis"> 配件</li>
-            <li @mouseover="propsVis">道具</li>
-            <li @mouseover="teamVis">球队</li>
-            <li @mouseover="healthVis">运动健康</li>
+            <li @mouseover="shoesVis" @mouseout="themeVis">球鞋</li>
+            <li @mouseover="clothesVis" @mouseout="themeVis">服饰</li>
+            <li @mouseover="partsVis" @mouseout="themeVis"> 配件</li>
+            <li @mouseover="propsVis" @mouseout="themeVis">道具</li>
+            <li @mouseover="teamVis" @mouseout="themeVis">球队</li>
+            <li @mouseover="healthVis" @mouseout="themeVis">运动健康</li>
           </ul>
           <div class="headLeft">
           <div class="theme" :style='theme' @mouseout="themeVis" @mouseover="themeDis">
@@ -129,33 +129,33 @@ export default {
 </script>
 
 <style scoped>
-/* .homeHead{
-  width: 80%;
-  margin: 0 auto;
-  border: 1px solid;
-  height: 300px;
-} */
 .homeHead{
   /* border: 1px solid; */
   margin: 0 auto;
   display: flex;
-  height: 300px;
+  height: 250px;
   width: 80%;
-  /* border: 1px solid; */
+  position: relative;
+  bottom: 30px;
 }
 li{
   list-style: none;
   border: 1px solid;
   height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 100%; */
 }
 ul{
-  width:20%;  
+  width:20%; 
+
 }
 .headLeft{
   /* border: 1px solid;  */
   width: 50%; 
   height: 222px;
-  margin-top: 2%;
+  margin-top: 14.5px;
 }
 .theme{
   width: 95%; 
@@ -175,7 +175,7 @@ ul{
   height: 222px;
   position:relative;
   /* top: 10%; */
-  margin-top: 2%;
+  margin-top: 14.5px;
   
 }
 

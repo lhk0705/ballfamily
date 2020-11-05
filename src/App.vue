@@ -1,11 +1,14 @@
 <template>
+<div class="new">
+  <div></div>
   <div id="app" >
     <heading></heading>
     <br>
     <router-view/>    
       <foot></foot>
   </div>
-
+  <div></div>
+</div>
 </template>
 
 <script>
@@ -34,7 +37,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   /* border:1px solid black; */
-  margin: 0 10%;
-
+  background-color: white;
+  
 }
+.new{
+display:grid;
+grid:  none/15% 70% 15%;
+background-color: rgb(245, 245, 245);
+}
+
 </style>

@@ -23,7 +23,9 @@ export default {
   border: 1px solid;
   width: 75%;
   height: 150px;
-  margin-left:14%
+  margin-left:14.5%;
+  position: relative;
+  bottom:30px
 }
 .header{
   border-bottom: 1px solid;
@@ -40,7 +42,7 @@ export default {
 .main div{
   border:1px solid;
   height: 80%;  
-  margin: 10% ;
+  margin: 10% 3% ;
   border-radius: 20px;
 }
 </style>

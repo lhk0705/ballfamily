@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="business">
       <heading></heading>
       <router-view></router-view>
   </div>
@@ -14,6 +14,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.business{
+    margin-bottom: 50px;
+}
 </style>
