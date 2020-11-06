@@ -4,10 +4,10 @@
       <h3>尽享折扣</h3>
     </div>
   <div class="main">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
+      <div><img src="./img/1.png" alt=""></div>
+      <div><img src="./img/2.png" alt=""></div>
+      <div><img src="./img/3.png" alt=""></div>
+      <div><img src="./img/4.png" alt=""></div>
     </div>
   </div>
 </template>
@@ -40,9 +40,13 @@ export default {
   height: 100px;
 }
 .main div{
-  border:1px solid;
-  height: 80%;  
-  margin: 10% 3% ;
+  height: 95%;  
+  margin: 4% 1% ;
   border-radius: 20px;
+}
+.main div img{
+  height: 100%;  
+  border-radius: 20px;
+  width: 100%;
 }
 </style>

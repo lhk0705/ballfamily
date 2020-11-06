@@ -7,7 +7,7 @@
         <el-button size="mini" @click="mostHot">最热</el-button>
       </div>
       <div class="searchBbs">
-          <el-input size="mini" style="width:30%" placeholder="请输入搜索条件" v-model="condition"></el-input>
+          <el-input size="mini" style="width:90%" placeholder="请输入搜索条件" v-model="condition"></el-input>
           <button size="mini" style="height:27px;width:30px" @click="search(condition)"><i class="icon iconfont icon-search"></i></button>
       </div>
       <div class="toNewBbs"> 
@@ -121,8 +121,10 @@ created(){
 }
 .searchBbs{
   position: relative;
-  left: 40%;
+  left: 20%;
   display: flex;
+  /* border: 1px solid; */
+  width: 40%;
 }
 .toNewBbs{
   float: right;

@@ -1,17 +1,22 @@
 <template>
   <div>
     <div class="community">
+      
       <div class="logo">
+        <router-link to="/business">
         <div class="baller"><h2>球友商城</h2></div>
+        </router-link>
         <div class="baller_span"><strong>装备，让生活运动起来！</strong></div>
       </div>
+      
       <div class="busSearch">
         <div class="choice">
-          <div @click="a" :style="stylea">宝贝</div>
-          <div @click="b" :style="styleb">店铺</div>
+          <div @click="a" :style="items">宝贝</div>
+          <div @click="b" :style="stores">店铺</div>
         </div>
         <div class="searchBbs">
           <el-input
+          class="input"
             size="mini"            
             v-model="condition"           
           ></el-input>
@@ -39,7 +44,7 @@ export default {
     return{
     condition:'',
     target:'items',
-    stylea:{
+    items:{
       background:' rgb(250, 199, 199)',
       border:'none'
       },
@@ -53,23 +58,33 @@ export default {
   },
   methods:{
     a(){
-      this.stylea={
+      this.items={
       background:' rgb(250, 199, 199)',
       border:'none'
       },
-      this.styleb={
+      this.stores={
       background:'',
       border:''
-      }
+      },
+      this.target='items'
     },
     b(){
-      this.styleb={
+      this.stores={
       background:' rgb(250, 199, 199)',
       border:'none'
       },
-      this.stylea={
+      this.items={
       background:'',
       border:''
+      },
+      this.target='stores'
+    },
+    search(condition){
+      if(this.target==='items'){
+        this.$router.push({name:'items',params:{}})
+      }
+      else{
+        this.$router.push({name:'stores',params:{}})
       }
     }
   }
@@ -114,7 +129,10 @@ export default {
   left: 40%; */
   display: flex;
   width:100%;
-  
+}
+.input{
+  border: 2px solid rgb(248, 97, 97);
+  border-radius: 4px;
 }
 .busSearch{
   /* border:1px solid; */
@@ -162,5 +180,8 @@ li{
 }
 a:hover{
   color: red;
+}
+.baller:hover{
+  color: black;
 }
 </style>

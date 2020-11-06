@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="a"><router-link to="/">shoes</router-link></div>
+        <div class="a"><router-link to="/stores">shoes</router-link></div>
         
         
         

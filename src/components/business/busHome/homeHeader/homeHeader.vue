@@ -141,7 +141,8 @@ export default {
 li{
   list-style: none;
   border: 1px solid;
-  height: 30px;
+  height: 12%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -149,7 +150,8 @@ li{
 }
 ul{
   width:20%; 
-
+  /* border: 1px solid; */
+  height: 100%;
 }
 .headLeft{
   /* border: 1px solid;  */

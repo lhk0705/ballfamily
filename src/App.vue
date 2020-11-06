@@ -40,6 +40,16 @@ export default {
   background-color: white;
   z-index: 1;
 }
+#app a{
+  text-decoration: none;
+  color: black;
+}
+#app a:hover{
+  color: red;
+}
+li{
+  list-style: none;
+}
 .new{
 display:grid;
 grid:  none/15% 70% 15%;
