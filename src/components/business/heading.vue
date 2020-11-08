@@ -81,7 +81,8 @@ export default {
     },
     search(condition){
       if(this.target==='items'){
-        this.$router.push({name:'items',params:{}})
+        // this.$router.push({name:'items',params:{}})
+        this.$router.push({name:'singleItem',params:{}})
       }
       else{
         this.$router.push({name:'stores',params:{}})

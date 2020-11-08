@@ -25,6 +25,8 @@ let items=()=>import('@/components/business/item/items')
 let singleItem=()=>import('@/components/business/item/singleItem')
 let singleStore=()=>import('@/components/business/store/singleStore')
 let stores=()=>import('@/components/business/store/stores')
+let itemTotal=()=>import('@/components/business/item/singleItem/itemTotal')
+let itemComment=()=>import('@/components/business/item/singleItem/itemComment')
 
 Vue.use(Router)
 
@@ -48,7 +50,17 @@ export default new Router({
       {
         path:'/singleItem',
         name:'singleItem',
-        component:singleItem
+        component:singleItem,
+        redirect:'/itemTotal',
+        children:[{
+        path:'/itemTotal',
+        name:'itemTotal',
+        component:itemTotal
+        },{
+          path:'/itemComment',
+          name:'itemComment',
+          component:itemComment
+        }]
       },
       {
         path:'/singleStore',

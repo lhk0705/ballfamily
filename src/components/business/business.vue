@@ -16,6 +16,6 @@ export default {
 
 <style scoped>
 .business{
-    margin-bottom: 50px;
+    margin-bottom: 75px;
 }
 </style>
