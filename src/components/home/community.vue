@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="nba-news">
-      <div class="nba-news-head"><h2>NBA快报</h2>
+      <div class="nba-news-head"><h2>社区最新动态</h2>
         </div>
       <br>
       <div class="nba-news-foot">

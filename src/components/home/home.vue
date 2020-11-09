@@ -3,6 +3,7 @@
     <nba></nba>
     <cba></cba>
     <community></community>
+    <bussiness></bussiness>
   </div>
 </template>
 

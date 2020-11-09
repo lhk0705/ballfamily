@@ -96,13 +96,14 @@ data(){
   display: grid;
   grid: 200px 200px 200px /25% 25% 25% 25%;  
    /* border:1px solid black */
-   
+  font-size: 10px;
 }
 .films div{
   border:1px solid black;
   border-radius: 8px;
   margin: 20px;
   text-align: center;
+  font-size: 0.6em;
 }
 
 img{

@@ -35,7 +35,7 @@
     </div>
     <div class="newMeetExp">
       <div><strong>说明：</strong></div>
-      <div><textarea name="" id="" cols="80" rows="5" v-model="ballComments"></textarea></div>
+      <div><textarea name="" id="" cols="60" rows="5" v-model="ballComments"></textarea></div>
     </div>
     <div class="newMeetBtn">
       <el-button size="mini" @click="newMeet" type="primary">创建</el-button>
@@ -83,7 +83,10 @@ export default {
 </script>
 
 <style scoped>
-
+.newMeet{
+  width: 80%;
+  margin: 0 auto;
+}
 .newMeetTitle,
 .newMeetExp,
 .newMeetPlace,
@@ -91,7 +94,8 @@ export default {
 .newMeetLimit 
 /* .placeInput */
 {
-  width: 60%;
+  width: 100%;
+  
   display: flex;
   justify-content: left;
   align-items: center;

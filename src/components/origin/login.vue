@@ -31,7 +31,8 @@ export default {
       password:''
     }
   },
-  methods:{login(){
+  methods:{
+    login(){
     if(this.userId===''||this.password===''){
       this.$message({
         message: '请填写必填项！',

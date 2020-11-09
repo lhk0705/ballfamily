@@ -13,7 +13,6 @@
         v-model="ballTime"
         type="date"
         style="width:20%" 
-        placeholder="请选择日期"
           ></el-date-picker>
           <el-button size="mini" type="primary" style="width:10%" @click="search">查询</el-button>
         </div>

@@ -27,6 +27,14 @@ let singleStore=()=>import('@/components/business/store/singleStore')
 let stores=()=>import('@/components/business/store/stores')
 let itemTotal=()=>import('@/components/business/item/singleItem/itemTotal')
 let itemComment=()=>import('@/components/business/item/singleItem/itemComment')
+let mySite=()=>import('@/components/origin/myInfo/mySite')
+let myMark=()=>import('@/components/origin/myInfo/myMark')
+let myBall=()=>import('@/components/origin/myInfo/myBall')
+let myOrder=()=>import('@/components/origin/myInfo/myOrder')
+let myComment=()=>import('@/components/origin/myInfo/myComment')
+let myStore=()=>import('@/components/origin/myInfo/myStore')
+let myChart=()=>import('@/components/origin/myInfo/myChart')
+
 
 Vue.use(Router)
 
@@ -77,7 +85,45 @@ export default new Router({
     {
       path:'/myInfo',
       name:'myInfo',
-      component:myInfo
+      component:myInfo,
+      redirect:'/mySite',
+      children:[
+        {
+          path:'/mySite',
+        name:'mySite',
+        component:mySite
+        },
+        {
+          path:'/myChart',
+        name:'myChart',
+        component:myChart
+        },
+        {
+          path:'/myMark',
+        name:'myMark',
+        component:myMark
+        },
+        {
+          path:'/myBall',
+        name:'myBall',
+        component:myBall
+        },
+        {
+          path:'/myOrder',
+        name:'myOrder',
+        component:myOrder
+        },
+        {
+          path:'/myComment',
+        name:'myComment',
+        component:myComment
+        },
+        {
+          path:'/myStore',
+        name:'myStore',
+        component:myStore
+        },
+      ]
       },
     {
     path:'/login',
