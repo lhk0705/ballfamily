@@ -9,11 +9,12 @@ app.use(cors());
 var user=require('./user');
 var match=require('./association/match');
 var players=require('./association/players');
-var team=require('./association/teams');
+var teams=require('./association/teams');
 var balls=require('./community/ballMeet/balls');
 var joinBall=require('./community/ballMeet/joinBall');
 var comments=require('./community/bbs/comments');
-var sites=require('./community/bbs/sites')
+var sites=require('./community/bbs/sites');
+var marks=require('./community/bbs/marks');
 var chartItems=require('./business/chartItems');
 var charts=require('./business/charts');
 var evaluates=require('./business/evaluates');
@@ -62,6 +63,15 @@ app.post('/getAllBbs',(req,res)=>{
 });
 app.post('/getBbsbyid',(req,res)=>{
     connection.query(sites.queryById,req.body.siteId,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+app.post('/queryCommentsByName',(req,res)=>{
+    connection.query(comments.queryCommentsByUsername,req.body.userName,(err,result)=>{
         if(err){
             console.log(err);
         }else{
@@ -150,6 +160,15 @@ app.post('/addComment',(req,res)=>{
         }
     })
 });
+app.post('/querySites',(req,res)=>{
+    connection.query(sites.queryByName,req.body.userName,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
 // balls表
 app.post('/getBalls',(req,res)=>{
     connection.query(balls.queryAll,req.body,(err,result)=>{
@@ -224,6 +243,16 @@ app.post('/updatePeople',(req,res)=>{
         }
     })
 });
+app.post('/queryBalls',(req,res)=>{
+    connection.query(balls.queryByName,req.body.userName,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+// mark表
 app.post('/markInsert',(req,res)=>{
     let data=[
         req.body.markId,
@@ -238,6 +267,15 @@ app.post('/markInsert',(req,res)=>{
         }
     })
 });
+app.post('/queryMarks',(req,res)=>{
+    connection.query(marks.queryByName,req.body.userName,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        } 
+    })
+})
 // user表
 app.post('/getUser',(req,res)=>{
     connection.query(user.queryAll,(err,result)=>{
@@ -253,6 +291,7 @@ app.post('/addUser',(req,res)=>{
         req.body.userId,
         req.body.password,
         req.body.userName,
+        req.body.birthday,
     ]
     connection.query(user.insert,data,(err,result)=>{
         if(err){
@@ -262,7 +301,39 @@ app.post('/addUser',(req,res)=>{
         }
     })
 });
-// 
+app.post('/queryUser',(req,res)=>{
+    connection.query(user.queryByName,req.body.userName,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+// teams表
+// 快排返回排名表
+app.post('/getRates',(req,res)=>{
+    let data=[
+        req.body.league,
+        req.body.area
+    ]
+    connection.query(teams.queryRates,data,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            for(let i=1;i<result.length;i++){
+                for(let j=0;j<result.length-1;j++){
+                    if(result[j].rate>result[j+1].rate){
+                        let temp=result[j]
+                        result[j]=result[j+1]
+                        result[j+1]=temp
+                    }
+                }
+            }
+            res.send(result)
+        }
+    })
+})
 
 
 

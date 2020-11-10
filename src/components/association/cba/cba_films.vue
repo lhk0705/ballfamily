@@ -80,7 +80,7 @@
 <script>
 export default {
 data(){
-  return {
+  return  {
     films: [
       {href:'/blank'}
       ]

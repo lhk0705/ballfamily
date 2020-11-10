@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul v-for=" item in matches" :key="item.matchId">
+    <ul v-for=" item in show" :key="item.matchId">
       <li>
         {{item.matchTime}}
         <br>
@@ -8,6 +8,15 @@
         {{item.host}}VS{{item.guest}}
       </li>
     </ul>
+    <div>第&nbsp;&nbsp;{{pageNum}}&nbsp;&nbsp;页</div>
+    <div class="page">
+        <div @click="turn(1)" :style="style1">1</div>
+        <div @click="turn(2)" :style="style1">2</div>
+        <div @click="turn(3)" :style="style1">3</div>
+        <div @click="turn(4)" :style="style1">4</div>
+        <div @click="turn(5)" :style="style1">5</div>
+        <div @click="turn(6)" :style="style1">6</div>
+    </div>
   </div>
 </template>
 
@@ -16,7 +25,9 @@ import axios from "axios";
 export default {
   data(){
 return{
-  matches:[]
+  matches:[],
+  show:[],
+  pageNum:1
 }
   },
   created(){
@@ -27,14 +38,45 @@ return{
       axios.post('/getAllMatch',{league:'CBA'})
       .then((res)=>{
         this.matches=res.data
+        this.show=res.data.slice(0,5)
       })
     },
-  }
+    turn(n){
+      // console.log(this.matches);
+      let x=(n-1)*5
+      let y=(n-1)*5+5
+      let pageShow=this.matches
+      // console.log(x,y);
+      this.show=pageShow.slice(x,y);
+      // console.log(this.show);
+      this.pageNum=n
+    }
+  },
 }
+
 </script>
 
 <style scoped>
 li{
   list-style: none;
+}
+.page{
+  display: flex;
+  /* width: 30%; */
+  height: 30px;
+  border: solid 1px;
+  position: absolute;
+  right: 5%;
+  border-right: none;
+}
+.page div{
+  width: 30px;
+  height: 100%;
+  border-right: solid 1px ;
+  background: rgb(196, 194, 194);
+}
+.page div:hover{
+  cursor: pointer;
+  background: white;
 }
 </style>

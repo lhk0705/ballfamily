@@ -57,7 +57,7 @@ export default {
         ballPeople:1,
         ballLimit:this.ballLimit,
         ballComments:this.ballComments,
-        ballCreater:'henry'
+        ballCreater:this.$store.getters.getUser
       }
       axios.post('/addBall',data)
       .then()

@@ -10,7 +10,7 @@
         <div>{{user.likeNBA}}</div>
         </div>
         <div>
-        <h3>生日：</h3>
+        <h3>注册日期：</h3>
         <div>{{user.birthday}}</div>
         </div>
         <div>
@@ -24,7 +24,7 @@
         <div><router-link to='/myMark'>我的收藏</router-link></div>
         <div><router-link to='/myComment'>我的评论</router-link></div>
         <div><router-link to='/myBall'>我的约球</router-link></div>
-        <div><router-link to='/mySite'>我的好友</router-link></div>
+        <!-- <div><router-link to='/mySite'>我的好友</router-link></div> -->
         <div><router-link to='/myOrder'>我的订单</router-link></div>
         <div><router-link to='/myChart'>我的购物车</router-link></div>
         <div><router-link to='/myStore'>我的店铺</router-link></div>
@@ -37,16 +37,18 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
 data(){
   return{
-    user:{
-      userName:'henry',
-      likeNBA:'湖人',
-      birthday:'2020-6-24',
-      likeCBA:'广东'
-    }
+    user:''    
   }
+},
+created(){
+    axios.post('/queryUser',{userName:this.$store.getters.getUser})
+    .then((res)=>{
+        this.user=res.data[0]
+    })
 }
 }
 </script>

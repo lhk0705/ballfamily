@@ -79,7 +79,8 @@ export default {
             let data={
               userId:this.userId,
               password:this.password,
-              userName:this.userName
+              userName:this.userName,
+              birthday: new Date().toLocaleDateString()
             }
             axios.post('/addUser',data)
             .then()
