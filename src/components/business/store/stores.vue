@@ -11,10 +11,12 @@
           </router-link>
         </div>
         <div class="storeRight">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div><router-link to="singleItem">
+        <img src="../item/singleItem/篮球.png" alt=""></router-link>        
+      </div>
+      <div><img src="../busHome/img/大咖推荐2.png" alt="">   </div>
+      <div><img src="../busHome/img/大咖推荐3.png" alt="">   </div>
+      <div><img src="../busHome/img/大咖推荐4.png" alt="">   </div>
         </div>
       </div>
     </div>
@@ -37,6 +39,10 @@ export default {
 </script>
 
 <style scoped>
+img{
+  width: 100%;
+  height: 100%;
+  }
 .stores {
   width: 80%;
   margin: 0 auto;

@@ -4,10 +4,12 @@
       <h3>猜你喜欢</h3>
     </div>
   <div class="main">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
+      <div>
+        <img src="./img/guesslike1.png" alt="">
+      </div>
+      <div><img src="./img/guesslike2.png" alt=""></div>
+      <div><img src="./img/guesslike3.png" alt=""></div>
+      <div><img src="./img/guesslike4.png" alt=""></div>
     </div>
   </div>
 </template>
@@ -19,6 +21,10 @@ export default {
 </script>
 
 <style scoped>
+img{
+  width: 100%;
+  height: 100%;
+}
 .container{
   border: 1px solid;
   width: 75%;

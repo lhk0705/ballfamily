@@ -43,13 +43,13 @@ export default {
   },
   data(){
     return{
-      shoes:{visibility:'hidden'},
-      parts:{visibility:'hidden'},
+      shoes:{display:'none'},
+      parts:{display:'none'},
       theme:{display:'none'},
-      props:{visibility:'hidden'},
-      team:{visibility:'hidden'},
-      health:{visibility:'hidden'},
-      clothes:{visibility:'hidden'},
+      props:{display:'none'},
+      team:{display:'none'},
+      health:{display:'none'},
+      clothes:{display:'none'},
       itemRecommand:{display:'block'},
       
 
@@ -59,62 +59,62 @@ export default {
     propsVis(){
       this.theme.display='block';
       this.itemRecommand.display='none';
-      this.shoes.visibility='hidden';
-      this.parts.visibility='hidden';
-      this.clothes.visibility='hidden';
-      this.props.visibility='visible';
-      this.team.visibility='hidden';
-      this.health.visibility='hidden';
+      this.shoes.display='none';
+      this.parts.display='none';
+      this.clothes.display='none';
+      this.props.display='block';
+      this.team.display='none';
+      this.health.display='none';
     },
     teamVis(){
       this.theme.display='block';
       this.itemRecommand.display='none';
-      this.shoes.visibility='hidden';
-      this.parts.visibility='hidden';
-      this.clothes.visibility='hidden';
-      this.props.visibility='hidden';
-      this.team.visibility='visible';
-      this.health.visibility='hidden';
+      this.shoes.display='none';
+      this.parts.display='none';
+      this.clothes.display='none';
+      this.props.display='none';
+      this.team.display='block';
+      this.health.display='none';
     },
     healthVis(){
       this.theme.display='block';
       this.itemRecommand.display='none';
-      this.shoes.visibility='hidden';
-      this.parts.visibility='hidden';
-      this.clothes.visibility='hidden';
-      this.props.visibility='hidden';
-      this.team.visibility='hidden';
-      this.health.visibility='visible';
+      this.shoes.display='none';
+      this.parts.display='none';
+      this.clothes.display='none';
+      this.props.display='none';
+      this.team.display='none';
+      this.health.display='block';
     },
     shoesVis(){
       this.theme.display='block';
       this.itemRecommand.display='none';
-      this.shoes.visibility='visible';
-      this.parts.visibility='hidden';
-      this.clothes.visibility='hidden';
-      this.props.visibility='hidden';
-      this.team.visibility='hidden';
-      this.health.visibility='hidden';
+      this.shoes.display='block';
+      this.parts.display='none';
+      this.clothes.display='none';
+      this.props.display='none';
+      this.team.display='none';
+      this.health.display='none';
     },
     partsVis(){
       this.theme.display='block';
       this.itemRecommand.display='none';
-      this.shoes.visibility='hidden';
-      this.parts.visibility='visible';
-      this.clothes.visibility='hidden';
-      this.props.visibility='hidden';
-      this.team.visibility='hidden';
-      this.health.visibility='hidden';
+      this.shoes.display='none';
+      this.parts.display='block';
+      this.clothes.display='none';
+      this.props.display='none';
+      this.team.display='none';
+      this.health.display='none';
     },
     clothesVis(){
       this.theme.display='block';
       this.itemRecommand.display='none';
-      this.shoes.visibility='hidden';
-      this.clothes.visibility='visible';
-      this.parts.visibility='hidden';
-      this.props.visibility='hidden';
-      this.team.visibility='hidden';
-      this.health.visibility='hidden';
+      this.shoes.display='none';
+      this.clothes.display='block';
+      this.parts.display='none';
+      this.props.display='none';
+      this.team.display='none';
+      this.health.display='none';
     },
     themeVis(){      
       this.theme.display='none';
@@ -180,5 +180,7 @@ ul{
   margin-top: 14.5px;
   
 }
-
+li:hover{
+  cursor: pointer;
+}
 </style>
