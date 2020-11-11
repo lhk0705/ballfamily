@@ -42,9 +42,11 @@ export default {
     else{
       axios.post('/getUser',1)
       .then((res)=>{
+        let commit=false
         for(let item of res.data){
           if(item.userId===this.userId&&item.password===this.password){
-            alert("登陆成功！")            
+            alert("登陆成功！")
+            commit=true            
             if(this.autoLogin){
               this.$store.commit('autoUser',item.userName)
               // this.$store.commit('autoUser','lll')
@@ -53,6 +55,10 @@ export default {
             }            
             this.$router.push('/')
           }
+        }
+        if(commit===false)
+        {
+          alert('请输入正确的账号密码！')
         }
       })
     }

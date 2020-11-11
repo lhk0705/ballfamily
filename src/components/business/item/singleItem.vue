@@ -11,9 +11,17 @@ import singleStoreHead from "../store/singleStoreHead";
 import itemInfo from "./singleItem/itemInfo";
 import itemMain from "./singleItem/itemMain";
 export default {
+    afterRouteEnter:(to,from,next)=>{
+        next((vm)=>{
+           window.scrollTo(0,0) 
+        })
+    },
 components:{
     singleStoreHead,itemInfo,itemMain
-}
+},
+// created(){
+//     window.scroll(0,0)
+// }
 }
 </script>
 

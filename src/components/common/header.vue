@@ -62,9 +62,12 @@ export default {
   },
   methods: {
     logOut() {
+      let a=confirm('确定退出？')
+      if(a){
       this.$store.commit("setUser", "");
       this.userName = "";
       alert("退出成功");
+      }
     },
   },
 };
@@ -80,7 +83,6 @@ export default {
 #username {
   color: rgb(252, 249, 249);
 }
-#username:hover,
 a:hover {
   border-bottom: 1px solid;
   color: rgb(0, 153, 255);

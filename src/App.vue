@@ -24,7 +24,12 @@ export default {
     return{
       user:''
     }
-  }
+  },
+  mounted() {
+      this.$router.afterEach((to, from, next) => {
+      window.scroll(0, 0)
+      })
+    },
 }
 </script>
 
