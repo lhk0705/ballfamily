@@ -7,9 +7,10 @@ import comments from "./community/comments";
 import joinBall from "./community/joinBall";
 import marks from "./community/marks";
 import user from "./user";
+import stores from "./bussiness/stores";
 
 export const store=new Vuex.Store({
     modules:{
-        ball,sites,comments,joinBall,user,marks
+        ball,sites,comments,joinBall,user,marks,stores
     }
 })

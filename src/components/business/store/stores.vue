@@ -3,7 +3,7 @@
     <div v-for="item in stores" :key="item.storeId">
       <div class="storesItem">
         <div class="storeLeft">
-          <router-link :to="{name:'singleStore',params:{}}">
+          <router-link :to="{name:'singleStore',params:{storeName:item.storeName}}">
           <div class="storeLeftImg">
             <img src="./nike.png" alt="" />
           </div>
@@ -11,7 +11,8 @@
           </router-link>
         </div>
         <div class="storeRight">
-          <div><router-link to="singleItem">
+          <div>
+            <router-link :to="{name:'singleItem',params:{storeName:item.storeName}}">
         <img src="../item/singleItem/篮球.png" alt=""></router-link>        
       </div>
       <div><img src="../busHome/img/大咖推荐2.png" alt="">   </div>
@@ -24,17 +25,25 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
-      stores: [
-        {
-          storeId: 0,
-          storeName: "NIKE旗舰店",
-        },
-      ],
+      stores: [],
     };
   },
+  created(){
+    if(this.$store.getters.getStores.length){
+      this.stores=this.$store.getters.getStores
+    }else{
+      axios.post('/getAllStores',1)
+      .then((res)=>{
+      this.$store.commit('setStore',res.data)
+      this.stores=this.$store.getters.getStores
+    })
+    }
+    
+  }
 };
 </script>
 

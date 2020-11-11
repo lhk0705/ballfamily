@@ -1,6 +1,6 @@
 <template>
     <div class="singleItem">
-        <singleStoreHead class="singleStoreHead"></singleStoreHead>
+        <singleStoreHead class="singleStoreHead" :storeName='storeName'></singleStoreHead>
         <itemInfo class="itemInfoTag"></itemInfo>
         <itemMain class="itemMain"></itemMain>
     </div>
@@ -11,17 +11,25 @@ import singleStoreHead from "../store/singleStoreHead";
 import itemInfo from "./singleItem/itemInfo";
 import itemMain from "./singleItem/itemMain";
 export default {
-    afterRouteEnter:(to,from,next)=>{
-        next((vm)=>{
-           window.scrollTo(0,0) 
-        })
+    beforeRouteEnter:(to,from,next)=>{
+        // if(from.path==='/items'){
+            next((vm)=>{
+                console.log(vm.$route.params);
+                vm.storeName=vm.$route.params.storeName
+                // console.log(vm.storeName);
+            })
+        // }
     },
+    
 components:{
     singleStoreHead,itemInfo,itemMain
 },
-// created(){
-//     window.scroll(0,0)
-// }
+data(){
+    return{
+        storeName:''
+    }
+}
+
 }
 </script>
 

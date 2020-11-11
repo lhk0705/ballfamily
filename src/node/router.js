@@ -335,5 +335,46 @@ app.post('/getRates',(req,res)=>{
     })
 })
 
-
-
+// stores表
+app.post('/getMyStore',(req,res)=>{
+    connectBus.query(stores.queryByName,req.body.userName,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+})
+app.post('/addStore',(req,res)=>{
+    let data=[
+        req.body.storeId,
+        req.body.userName,
+        req.body.storeName,
+        
+    ]
+    connectBus.query(stores.insert,data,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+});
+app.post('/getStoreByName',(req,res)=>{
+    connectBus.query(stores.queryByStoreName,req.body.storeName,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+})
+app.post('/getAllStores',(req,res)=>{
+    connectBus.query(stores.queryAll,req.body,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result)
+        }
+    })
+})

@@ -27,7 +27,7 @@
         <!-- <div><router-link to='/mySite'>我的好友</router-link></div> -->
         <div><router-link to='/myOrder'>我的订单</router-link></div>
         <div><router-link to='/myChart'>我的购物车</router-link></div>
-        <div><router-link to='/myStore'>我的店铺</router-link></div>
+        <div @click="toMyStore">我的店铺</div>
       </el-col>
       <el-col :span='19' class="myInfoRight">
         <router-view></router-view>
@@ -49,6 +49,19 @@ created(){
     .then((res)=>{
         this.user=res.data[0]
     })
+},
+methods:{
+  toMyStore(){
+    axios.post('/getMyStore',{userName:this.$store.getters.getUser})
+    .then((res)=>{
+      // console.log(res.data);
+      if(res.data.length){
+        this.$router.push({name:'singleStore',params:{userName:this.$store.getters.getUser}})
+      }else{
+        this.$router.push('/myStore')
+      }
+    })
+  }
 }
 }
 </script>

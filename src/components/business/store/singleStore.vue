@@ -1,6 +1,6 @@
 <template>
   <div class="singleStore">
-    <singleStoreHead class="singleStoreHead"></singleStoreHead>
+    <singleStoreHead class="singleStoreHead" :prop="store.storeName"></singleStoreHead>
   <div class="singleStore_poster">
     <img src="./poster.png" alt="">
   </div>
@@ -13,12 +13,37 @@
 import singleStoreHot from "./singleStore_hot";
 import singleStoreNew from "./singleStore_new";
 import singleStoreHead from "./singleStoreHead";
+import axios from "axios";
 export default {
+  beforeRouteEnter:(to,from,next)=>{
+    if(from.path==='/mySite'){
+      next((vm)=>{
+        axios.post('/getMyStore',{userName:vm.$store.getters.getUser})
+        .then((res)=>{
+          
+          vm.store=res.data[0];
+          // console.log(vm.store);
+        })
+      })
+    }
+    else if(from.path==='/stores'){
+      next((vm)=>{
+        // console.log(vm.$route.params);
+        axios.post('/getStoreByName',{storeName:vm.$route.params.storeName})
+        .then((res)=>{         
+          vm.store=res.data[0];
+          console.log(vm.store);
+      })
+    })
+    }
+    else{
+      next()
+    }
+},
 data(){
   return{
-    store:{
-      storeName:'NIKE旗舰店'
-    }
+    store:'',
+    // storeName:''
   }
 },
 components:{

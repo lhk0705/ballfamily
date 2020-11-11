@@ -6,7 +6,7 @@
             <img src="./nike.png" alt="">
           </div>
           <div><h3>
-            {{store.storeName}}
+            {{prop}}{{storeName}}
           </h3>            
           </div>
       </div>
@@ -41,11 +41,13 @@
 
 <script>
 export default {
+  props:{
+      prop:{type:String},
+      storeName:{type:String}
+  },
 data(){
   return{
-    store:{
-      storeName:'NIKE旗舰店'
-    }
+    
   }
 },
 }

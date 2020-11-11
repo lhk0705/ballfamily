@@ -6,61 +6,13 @@
       <div>价格</div>
     </div>
     <!-- <div class="itemList" v-for="item in items" :key='item.itemId'> -->
-    <div class="itemList">
+    <div class="itemList" v-for="item in items" :key="item.itemId">
       <div>
-            1
+           <!-- <router-link :to="{name:'singleItem',params:{storeName:1}}">
+                  aaa
+           </router-link> -->
       </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
-      <div>
-            1
-      </div>
+      
       
     </div>
   </div>
