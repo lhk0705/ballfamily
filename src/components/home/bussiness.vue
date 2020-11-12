@@ -7,14 +7,14 @@
       <div class="cba-news-foot">
       <div class="cba-img"> 
         <div :visibility="vis1">      
-          <img src="./cba1.png" width="300px" 
+          <img src="../business/busHome/img/new1.png" width="300px" 
           height="250px" alt="" class="img1"  :style='vis1'>
           </div> 
           <div :visibility="vis2">
-          <img src="./cba2.png" width="300px" 
+          <img src="../business/busHome/img/new2.png" width="300px" 
           height="250px" alt="" class="img2" :style='vis2'>
           </div>
-          <img src="./cba3.png" width="300px" 
+          <img src="../business/busHome/img/new3.png" width="300px" 
           height="250px" alt="" class="img3" :style='vis3'>       
       </div>
       <!-- <div class="busNew" v-for="item in business" :key="item.itemId"> -->
