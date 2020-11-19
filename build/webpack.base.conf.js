@@ -82,10 +82,7 @@ module.exports = {
 
     externals: {
       'vue': 'Vue',
-      'element-ui': 'ELEMENT',
-      // 'vue-router': 'vueRouter',
-      // 'vuex': 'Vuex',
-      // 'axios': 'Axios'
+      'element-ui': 'ELEMENT'
     },
       
 

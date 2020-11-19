@@ -138,13 +138,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: home,
-      meta:{
-        keepAlive:true,
-        cacheControl:{
-          maxAge:1000*60
-        }
-      }
+      component: home
     },
     {
       path: '/nba',

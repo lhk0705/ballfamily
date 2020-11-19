@@ -91,10 +91,6 @@ export default {
         this.timeplus()
       }
     }
-  },
-  beforeDestroy(){
-    clearTimeout(this.timeplus);
-    // alert('likaile')
   }
 }
 </script>
