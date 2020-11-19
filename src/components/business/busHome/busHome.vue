@@ -21,17 +21,17 @@
 import homeHeader from "./homeHeader/homeHeader";
 import cheaper from "./cheaper";
 import famousRec from "./famousRec";
-import guessLike from "./guessLike";
-import newStore from "./newStore";
-import rightBar from "./rightBar";
+// import guessLike from "./guessLike";
+// import newStore from "./newStore";
+// import rightBar from "./rightBar";
 export default {
   components: {
     homeHeader,
     cheaper,
     famousRec,
-    guessLike,
-    newStore,
-    rightBar,
+    guessLike:()=>import("./guessLike"),
+    newStore:()=>import("./newStore"),
+    rightBar:()=>import("./rightBar"),
   },
   data() {
     return {
