@@ -38,6 +38,7 @@ app.post('/getTodayMatch',(req,res)=>{
             console.log(err);
         }
         else{
+            res.setHeader('Cache-control','max-age=360000')
             res.send(result)
         }
     })

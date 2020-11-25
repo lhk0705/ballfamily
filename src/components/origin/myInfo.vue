@@ -1,5 +1,5 @@
 <template>
-  <div class="myInfo">
+  <div class="myInfo" v-if="this.$store.getters.getUser">
     <div class="myInfoHead">
       <div>
         <h3>用户名：</h3>
@@ -34,11 +34,18 @@
       </el-col>
     </el-row>
   </div>
+  <div v-else>
+    <login></login>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
+import login from './login'
 export default {
+  components:{
+    login
+  },
 data(){
   return{
     user:''    

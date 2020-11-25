@@ -69,7 +69,7 @@ export default {
         },3000)
     },
     getMatch(){
-      axios.post('/getTodayMatch',{league:'NBA',date:'2020-10-24'})
+      axios.post('/getTodayMatch',{league:'NBA',date:'2020/8/1'})
       .then((res)=>{
         // console.log(res.data);
         this.todayMatches=res.data

@@ -51,7 +51,7 @@ export default {
   },
   methods:{
     getMatch(){
-      axios.post('/getTodayMatch',{league:'CBA',date:'2020-10-24'})
+      axios.post('/getTodayMatch',{league:'CBA',date:'2020/11/7'})
       .then((res)=>{
         // console.log(res.data);
         this.todayMatches=res.data
