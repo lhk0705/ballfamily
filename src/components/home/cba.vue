@@ -14,7 +14,7 @@
           <img src="./cba2.png" width="300px" 
           height="250px" alt="" class="img2" :style='vis2'>
           </div>
-          <img src="./cba3.png" width="300px" 
+          <img :src="img3" width="300px" 
           height="250px" alt="" class="img3" :style='vis3'>       
       </div>
       <div class="cba-score">
@@ -25,6 +25,9 @@
                <strong>:</strong>  {{item.guestScore}}<strong>&nbsp;&nbsp;{{item.guest}}</strong>
           </li>
         </ul>
+      </div>
+      <div>
+        <!-- {{img}} -->
       </div>
       </div>
     </div>
@@ -39,14 +42,26 @@ export default {
       vis1:'visibility:visible',
       vis2:'visibility:hidden',
       vis3:'visibility:hidden',
-      time:0
+      time:0,
+      img3:''
     }
   },
   created(){    
     this.timeplus();
     this.getMatch();
+    
+  },
+  mounted(){
+    this.getPic()
   },
   methods:{
+    getPic(){
+      axios.get('/getPic',{ responseType: 'arraybuffer' }).then((res)=>{
+        // console.log(`data: image/jpeg;base64,${btoa(new Uint8Array(res.data[0]).reduce((data, byte) => data + String.fromCharCode(byte), ''))}`);
+        this.img3=`data:image/png;base64,${btoa(new Uint8Array(res.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))}`
+        // this.img3=`data:image/png;base64,${btoa(new Uint8Array(res.data[1]).reduce((data, byte) => data + String.fromCharCode(byte), ''))}`
+      })
+    },
     changevis2(){      
         this.vis1='visibility:hidden';
         this.vis2='visibility:visible';
