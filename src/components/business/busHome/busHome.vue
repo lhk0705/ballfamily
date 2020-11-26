@@ -67,7 +67,8 @@ export default {
 .rightBar {
   position: fixed;
   top: 30%;
-  left: 78%;
+  right: 16%;
+  /* width: 50px; */
 }
 .busHome{
     height:100%

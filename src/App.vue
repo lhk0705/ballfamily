@@ -44,6 +44,8 @@ export default {
   /* border:1px solid black; */
   background-color: white;
   z-index: 1;
+  width:70%;
+  margin: 0 auto;
 }
 #app a{
   text-decoration: none;
@@ -56,8 +58,8 @@ li{
   list-style: none;
 }
 .new{
-display:grid;
-grid:  none/15% 70% 15%;
+/* display:grid; */
+/* grid:  none/15% 70% 15%; */
 background-color: rgb(245, 245, 245);
 }
 

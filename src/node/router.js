@@ -25,23 +25,13 @@ var stores=require('./business/stores');
 var path=require('path')
 connection.connect();
 connectBus.connect();
-// app.all('*', function(req, res) {
-    // res.setHeader('Access-Control-Allow-Origin','*');
-    // res.setHeader('Access-Control-Allow-Methods', 'GET, POST'); 
-    // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization'); 
-    // res.setHeader("Content-Type", "application/json;charset=utf-8"); 
-// })
 app.listen(8089,(req,res)=>{
     console.log("验证程序已启动");
 });
 
 app.get('/getPic',(req,res)=>{
-    // res.setHeader('Status Code',200)
-    // console.log(res);
-    // res.sendFile('E:\Localrepository\ballfamily\src\components\home\cba1.png')
     res.setHeader('cache-control','public,max-age=36000000000000000')
     res.sendFile( path.join(__dirname, 'cba3.png'));
-    // res.sendFile( path.join(__dirname, 'cba3.png'));
 })
 // NBA/CBA
 app.post('/getTodayMatch',(req,res)=>{
