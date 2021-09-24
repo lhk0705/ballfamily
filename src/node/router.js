@@ -1,5 +1,6 @@
 var express=require('express');
 var connection=require('./ballSql');
+connection.connect();
 var connectBus=require('./businessSql')
 var app=express();
 var bp=require('body-parser');
@@ -23,7 +24,7 @@ var orderItems=require('./business/orderItems');
 var orders=require('./business/orders');
 var stores=require('./business/stores');
 var path=require('path')
-connection.connect();
+
 connectBus.connect();
 app.listen(8089,(req,res)=>{
     console.log("验证程序已启动");
