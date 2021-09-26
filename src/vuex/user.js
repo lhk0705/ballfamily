@@ -1,5 +1,6 @@
 const state={
-    userName:''
+    userName:'',
+    token:''
 }
 const mutations={
     // addJoin:(state)=>{
@@ -16,6 +17,10 @@ const mutations={
             value:data,time:Date.now()+1*1000*60*60*48
         }))
         
+    },
+    setToken:(state,data)=>{
+        state.token=data
+        sessionStorage.setItem('token',data)
     }
 }
 const getters={
@@ -29,6 +34,13 @@ const getters={
             return null;
             }
             return data.value
+        }
+    },
+    getToken:(state)=>{
+        if(state.token){
+            return state.token
+        }else{
+            return sessionStorage.getItem('token')
         }
     }
     

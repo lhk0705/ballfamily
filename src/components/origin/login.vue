@@ -4,11 +4,11 @@
     <div>
       <div class="logininput">
         <label >账号：</label>
-        <el-input size="mini" v-model="userId"></el-input>
+        <el-input size="mini" v-model="userId" @keyup.enter.native="login"></el-input>
       </div>
       <div class="logininput">
         <label >密码：</label>
-        <el-input size="mini" v-model="password" type="password"></el-input>
+        <el-input size="mini" v-model="password" type="password" @keyup.enter.native="login"></el-input>
       </div>
       <div>
         <el-checkbox class="checkbox" v-model="autoLogin">自动登录</el-checkbox>
@@ -40,24 +40,22 @@ export default {
       })
     }
     else{
-      axios.post('/getUser',1)
+      axios.post('/getUser',{userId:this.userId,password:this.password})
       .then((res)=>{
-        let commit=false
-        for(let item of res.data){
-          if(item.userId===this.userId&&item.password===this.password){
-            alert("登陆成功！")
-            commit=true            
-            if(this.autoLogin){
-              this.$store.commit('autoUser',item.userName)
+        if(res.data){
+          // console.log(res.data);
+          // 存储token
+          this.$store.commit('setToken',res.data)
+          if(this.autoLogin){
+              this.$store.commit('autoUser',this.userId)
               // this.$store.commit('autoUser','lll')
             }else{
-              this.$store.commit('setUser',item.userName)
-            }            
-            this.$router.push('/')
-          }
-        }
-        if(commit===false)
-        {
+              this.$store.commit('setUser',this.userId)
+            } 
+          alert("登陆成功！")
+          this.$router.push('/')
+        }else{
+ 
           alert('请输入正确的账号密码！')
         }
       })

@@ -9,6 +9,7 @@ import {store} from "./vuex/store";
 Vue.config.productionTip = false
 // axios.defaults.baseURL="http://localhost:8089"
 axios.defaults.baseURL="http://localhost:3000"
+axios.defaults.headers.common['Authorization'] = store.getters.getToken
 
 /* eslint-disable no-new */
 new Vue({
