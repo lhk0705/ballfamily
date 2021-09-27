@@ -16,6 +16,9 @@ let tokenSign=require('./tokenUtil').jwtSign
 let tokenCheck=require('./tokenUtil').jwtCheck
 app.use(tokenCheck)
 
+let crypto=require('./crypto')
+
+
 app.listen(3000,async(ctx,next)=>{
   console.log('koa已启动');
 })
@@ -30,7 +33,7 @@ router.post('/getTodayMatch',async(ctx,next)=>{
 router.post('/getUser',async(ctx,next)=>{ 
   // console.log(await query(user.queryAll));
   // let data=[ctx.request.body.userId,ctx.request.body.password];
-  // console.log(ctx.request.body.userId,ctx.request.body.password);
+  console.log(crypto.Decrypt(ctx.request.body.userId),crypto.Decrypt(ctx.request.body.password));
   let users=await query(user.queryAll)
   let result=users.filter(
     item => item.userId===ctx.request.body.userId && item.userId===ctx.request.body.userId)

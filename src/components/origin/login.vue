@@ -23,6 +23,7 @@
 
 <script>
 import axios from "axios";
+import { Encrypt,Decrypt } from "@/components/common/methods/util";
 export default {
   data(){
     return{
@@ -40,7 +41,8 @@ export default {
       })
     }
     else{
-      axios.post('/getUser',{userId:this.userId,password:this.password})
+      // console.log({userId:Encrypt(this.userId),password:Encrypt(this.password)});
+      axios.post('/getUser',{userId:Encrypt(this.userId),password:Encrypt(this.password)})
       .then((res)=>{
         if(res.data){
           // console.log(res.data);

@@ -11,7 +11,7 @@ module.exports={
             await next()
         }else{
             if(ctx.header.authorization){
-               console.log(await jwt.verify(ctx.header.authorization,'sdsds'));
+            //    console.log(await jwt.verify(ctx.header.authorization,'sdsds'));
             if(await jwt.verify(ctx.header.authorization,'sdsds')) {
                  // 执行下一步
                 await next()
